@@ -10,11 +10,11 @@ this is quake ui library i will fix things eventually
 
 ## Loadstring
 ```lua
-local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/Libraries/normal/quake/src"))()
+local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/quake/normal/bundled.lua"))()
 ```
 ## Example Script
 ```lua
-local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/Libraries/normal/quake/src"))()
+local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/quake/normal/bundled.lua"))()
 
 local window = quake:Window({
     Title = "Quake", 
