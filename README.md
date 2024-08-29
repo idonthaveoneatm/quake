@@ -8,6 +8,19 @@ this is quake ui library i will fix things eventually
 - [lucide.dev](https://lucide.dev/) - more lucide icons
 - [latte-soft/wax](https://github.com/latte-soft/wax) - bundler
 
+## Modifying
+- clone repo or sum or download as zip
+- install rojo on studio and vscode
+- install lune and darklua
+- bundling:
+```
+lune run wax bundle minify=false/true
+```
+or
+```
+lune wax bundle minify=false/true
+```
+
 ## Loadstring
 ```lua
 local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/Libraries/normal/quake/src"))()
