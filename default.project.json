@@ -1,0 +1,6 @@
+{
+  "name": "quake",
+  "tree": {
+    "$path":"src/project"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "quake",
+    "tree": {
+        "$className": "DataModel",
+
+        "ReplicatedStorage":{
+            "quake":{
+                "$path":"src/project"
+            }
+        }
+    }
+}

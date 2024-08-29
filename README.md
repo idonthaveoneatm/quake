@@ -1,4 +1,4 @@
- # quake
+# quake
 
 this is quake ui library i will fix things eventually
 
@@ -10,11 +10,11 @@ this is quake ui library i will fix things eventually
 
 ## Loadstring
 ```lua
-local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/quake/normal/bundled.lua"))()
+local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/Libraries/normal/quake/src"))()
 ```
 ## Example Script
 ```lua
-local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/quake/normal/bundled.lua"))()
+local quake = loadstring(game:HttpGet("https://raw.githubusercontent.com/idonthaveoneatm/Libraries/normal/quake/src"))()
 
 local window = quake:Window({
     Title = "Quake", 
@@ -63,27 +63,20 @@ local tab1 = window:Tab({
     Image = "rbxassetid://10734908793"  -- [OPTIONAL]
 })
 
-local button = tab1:Button({
+tab1:Button({
     Name = "Quake Button",
     Callback = function()
         print("Quake Button")
     end
 })
-button:SetName("New Name")
-button:SetCallback(function()
-    print("New Quake")
-end)
-
-local toggle = tab1:Toggle({
+tab1:Toggle({
     Name = "Quake Toggle",
     Default = false, -- [OPTIONAL]
     Callback = function(var)
         print("Quake Toggle", var)
     end
 })
-toggle:SetValue(true)
-
-local slider = tab1:Slider({
+tab1:Slider({
     Name = "Quake Slider",
     Min = 0,
     Max = 100,
@@ -93,11 +86,7 @@ local slider = tab1:Slider({
         print("Quake Slider", var)
     end
 })
-slider:SetValue(50)
-slider:SetMin(50)
-slider:SetMax(50)
-
-local dropdown = tab1:Dropdown({
+tab1:Dropdown({
     Name = "Quake Dropdown",
     Items = {"Apple", "Banana", "Carrot","Dingleberry"},
     Default = "Apple", -- [OPTIONAL]
@@ -106,11 +95,7 @@ local dropdown = tab1:Dropdown({
         print("Quake Dropdown", var)
     end
 })
-dropdown:SetItems({}) -- with multiselect
-dropdown:SelectItem("") -- withoutmultiselect
-dropdonw:SelectItems({})
-
-local textbox = tab1:TextBox({
+tab1:TextBox({
     Name = "Quake TextBox",
     Default = "", -- [OPTIONAL]
     OnLeave = true, -- [OPTIONAL]
@@ -119,50 +104,34 @@ local textbox = tab1:TextBox({
         print("Quake TextBox", var)
     end
 })
-textbox:SetInput("Input")
-
-local keybind = tab1:Keybind({
+tab1:Keybind({
     Name = "Quake Keybind",
     Default = "E",
     Callback = function()
         print("Quake Keybind")
     end
 })
-keybind:SetBind("T")
-
-local colorpicker = tab1:ColorPicker({
+tab1:ColorPicker({
     Name = "Quake Color Picker",
     Color = Color3.fromHex("#a49ae6"),
     Callback = function(var)
         print("Quake Color Picker", var)
     end
 })
-colorpicker:SetColor(Color3.fromRGB(255,255,255))
-
-local label = tab1:Label("Quake Label")
-label:SetText("New Label")
-
-local section = tab1:Section("Quake Section")
-section:SetText("New Section")
-
-local paragraph = tab1:Paragraph({
+tab1:Label("Quake Label")
+tab1:Section("Quake Section")
+tab1:Paragraph({
     Title = "Quake Paragraph",
     Body = "Quake Paragraph"
 })
-paragraph:SetTitle("New Title")
-paragraph:SetBody("New Body")
-
 local group1 = tab1:Group({
     Name = "Quake Group",
-    Icon = "rbxassetid://10734908793" -- [OPTIONAL]
+    Icon = "rbxassetid://10734950309" -- [OPTIONAL]
 })
-group:SetName("New Name")
-group:SetIcon("rbxassetid://10734950309")
 -- Group has all of the other components listed above except for another Group
 ```
 ## Miscellaneous
-These are on all components that are added to tabs or groups 
-Lock features exlcude: PARAGRAPH, SECTION, LABEL
+These are on all components that are added to tabs or groups
 ```lua
 <object>:Remove()
 <object>:Lock("Hey you cant do that")
