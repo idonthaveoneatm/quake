@@ -40,7 +40,7 @@ return function(target)
         Parent = target,
         isMobile = true,
 
-        KeyCode = Enum.KeyCode.Q
+        --KeyCode = Enum.KeyCode.Q
     })
 
     local tab1 = window:Tab({

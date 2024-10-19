@@ -1,9 +1,9 @@
 local a local aa,ab,ac,ad,ae,af,ag,ah,ai,aj,al,b,c,d,e,f,g,h,i,j={function()local b,c,d=a(1)local e return(function(...)
 local f,g,h,i,j=d(c.Bundles.themeSystem),d(c.Bundles.data),d(c.utilities.references),d(c.utilities.connections),d(c.
 utilities.get)local function k(l,m,n)n.Parent=m return d(c.components['new'..l])(n)end local l={}function l.Window(m,n)
-assert(n.Title,':Window needs a Title')n.Parent=n.Parent or game.CoreGui n.KeyCode=n.KeyCode or Enum.KeyCode.Q n.
-isMobile=n.isMobile or false f.create(n.CustomTheme or{})if n.Size then n.Size.X=n.Size.X or 550 n.Size.Y=n.Size.Y or
-400 math.clamp(n.Size.X,550,9e9)math.clamp(n.Size.Y,400,9e9)elseif not n.Size then n.Size={X=550,Y=400}end if n.Parent:
+assert(n.Title,':Window needs a Title')n.Parent=n.Parent or game.CoreGui n.KeyCode=n.KeyCode or nil n.isMobile=n.
+isMobile or false f.create(n.CustomTheme or{})if n.Size then n.Size.X=n.Size.X or 550 n.Size.Y=n.Size.Y or 400 math.
+clamp(n.Size.X,550,9e9)math.clamp(n.Size.Y,400,9e9)elseif not n.Size then n.Size={X=550,Y=400}end if n.Parent:
 FindFirstChild(n.Title)then n.Parent:FindFirstChild(n.Title):Destroy()end local o,p,q=d(c.platforms.mobile),d(c.
 platforms.computer),g.add({boolean=true},'isToggled')g.add({EnumItem=n.KeyCode},'keyCode')g.add({data={}},'selectedTab')
 g.add({boolean=false},'selectedFirst')local r=g.add{data=n}n.uid=r.uid local s,t,u,v=n.isMobile and o(n)or p(n),h.get
@@ -1334,97 +1334,96 @@ fromRGB(34,35,39),tertiaryBackground=Color3.fromRGB(22,22,22),text=Color3.fromRG
 fromRGB(255,67,211),background=Color3.fromRGB(195,198,217),secondaryBackground=Color3.fromRGB(127,130,140),
 tertiaryBackground=Color3.fromRGB(116,137,100),text=Color3.fromRGB(116,57,108),image=Color3.fromRGB(244,162,162),
 placeholder=Color3.fromRGB(57,181,103),close=Color3.fromRGB(181,177,67)}}return function(ag)local ah=ae:Window{Title=
-'Quake Window',Parent=ag,isMobile=true,KeyCode=Enum.KeyCode.Q}local ai,aj,al=ah:Tab{Name='Quake Tab 1',Image=
-'rbxassetid://10734908793'},ah:Tab{Name='Quake Tab 2',tabColor=Color3.fromRGB(255,120,222),Image=
-'rbxassetid://10734919691'},ah:Tab{Name='Quake Tab 3',tabColor=Color3.fromRGB(65,253,123),Image=
-'rbxassetid://10734950309'}ai:Button{Name='Quake Button',Callback=function()print'Quake Button'end}ai:Toggle{Name=
-'Quake Toggle',Default=false,Callback=function(b)print('Quake Toggle',b)end}ai:Slider{Name='Quake Slider',Min=0,Max=100,
-InitialValue=0,Callback=function(b)print('Quake Slider',b)end}ai:Dropdown{Name='Quake Multiselect Dropdown',Items={
-'Apple','Banana','Carrot','Dingleberry'},Default='Apple',Multiselect=true,Callback=function(b)print('Quake Dropdown',b)
-end}ai:TextBox{Name='Quake TextBox',Default='heyy',OnLeave=true,OnlyNumbers=true,Callback=function(b)print(
-'Quake TextBox',b)end}ai:Keybind{Name='Quake Keybind',Default='F',Callback=function()ae:ToggleQuake()end}ai:ColorPicker{
-Name='Quake Color Picker',Color=Color3.fromHex'#a49ae6',Callback=function(b)print('Quake Color Picker',b)end}ai:Label
-'Quake Label'ai:Section'Quake Section'ai:Paragraph{Title='Quake Paragraph',Body='Quake Paragraph'}aj:Label
-'Quake Group Below'local b=aj:Group{Name='Quake Group',Icon='rbxassetid://10734950309'}b:Button{Name='Quake Button',
-Callback=function()print'Quake Button'end}b:Toggle{Name='Quake Toggle',Default=false,Callback=function(c)print(
-'Quake Toggle',c)end}b:Slider{Name='Quake Slider',Min=0,Max=100,Step=1,InitialValue=0,Callback=function(c)print(
-'Quake Slider',c)end}b:Dropdown{Name='Quake Dropdown',Items={'Apple','Banana','Carrot','Dingleberry'},Multiselect=false,
-Callback=function(c)print('Quake Dropdown',c)end}b:TextBox{Name='Quake TextBox',Default='',Callback=function(c)print(
-'Quake TextBox',c)end}b:Keybind{Name='Quake Keybind',Default='E',Callback=function()print'Quake Keybind'end}b:
-ColorPicker{Name='Quake Color Picker',Color=Color3.fromHex'#a49ae6',Callback=function(c)print('Quake Color Picker',c)end
-}b:Label'Quake Label'b:Section'Quake Section'b:Paragraph{Title='Quake Paragraph',Body='Quake Paragraph'}aj:Dropdown{Name
-='Switch Theme',Items={'Dracula','Dark','Default','Eyebleed'},Default='Default',Callback=function(c)ae:SetCustomTheme(af
-[c])end}local c=al:Slider{Name='Slider To Lock',Max=150,Min=37,Callback=function(c)end}al:Toggle{Name='Lock Slider',
-Default=false,Callback=function(d)if d then c:Lock'Buy Premium!!'else c:Unlock()end end}return function()ae:Destroy()end
-end end)()end,[94]=function()local aa,ab,ac=a(94)local ad return(function(...)local ae=ac(ab.Parent.Parent.Bundles.
-Fusion)local af,ag=ae.Computed,ae.Spring return function(ah,ai,aj)return ag(af(ah),ai,aj)end end)()end,[95]=function()
-local aa,ab,ac=a(95)local ad return(function(...)local ae,af,ag={},{},ac(ab.Parent.Parent.Bundles.services)local ah=ag.
-ContextActionService function af.add(ai)table.insert(ae,ai)end function af.deleteConnections()for ai,aj in ae do aj:
-Disconnect()ae[ai]=nil end ah:UnbindAllActions()end return af end)()end,[96]=function()local aa,ab,ac=a(96)local ad
-return(function(...)local ae={}function ae.cloneref(af)if cloneref then return cloneref(af)else return af end end ae.
-getgenv=getgenv or nil return ae end)()end,[97]=function()local aa,ab,ac=a(97)local ad return(function(...)return
-function(ae,af)local ag,ah=ac(ab.Parent.Parent.Bundles.services),af or 10 local ai,aj,al,b,c,d,e=ag.UserInputService,ag.
-RunService,ae local function f(g,h,i)return g+(h-g)*i end local function g(h)if not(e)then return end if not(b)and(d)
-then al.Position=UDim2.new(e.X.Scale,f(al.Position.X.Offset,d.X.Offset,h*ah),e.Y.Scale,f(al.Position.Y.Offset,d.Y.Offset
-,h*ah))return end local i=(c-ai:GetMouseLocation())local j,k=(e.X.Offset-i.X),(e.Y.Offset-i.Y)d=UDim2.new(e.X.Scale,j,e.
-Y.Scale,k)al.Position=UDim2.new(e.X.Scale,f(al.Position.X.Offset,j,h*ah),e.Y.Scale,f(al.Position.Y.Offset,k,h*ah))end al
-.InputBegan:Connect(function(h)if h.UserInputType==Enum.UserInputType.MouseButton1 or h.UserInputType==Enum.
-UserInputType.Touch then b=true e=al.Position c=ai:GetMouseLocation()h.Changed:Connect(function()if h.UserInputState==
-Enum.UserInputState.End then b=false end end)end end)local h=aj.Heartbeat:Connect(g)return h end end)()end,[98]=function
-()local aa,ab,ac=a(98)local ad return(function(...)return function(ae,af)if typeof(ae)=='table'and ae.type=='State'then
-return ae:get(af)end return ae end end)()end,[99]=function()local aa,ab,ac=a(99)local ad return(function(...)return
-function(ae:string,af)ae=ae or''af=af or{TextSize=14,Font=Enum.Font.Arial,VectorSize=Vector2.new(200,50)}local ag=game:
-GetService'TextService'return ag:GetTextSize(ae,af.TextSize,af.Font,af.VectorSize)end end)()end,[100]=function()local aa
-,ab,ac=a(100)local ad return(function(...)local ae,af=Color3.new(0,0,0),Color3.new(1,1,1)return function(ag:Color3,ah:
-string,ai:number)local aj=string.lower(ah)if ah=='black'then return ag:Lerp(ae,ai)elseif ah=='white'then return ag:Lerp(
-af,ai)else return error'hey its not white or black'end end end)()end,[101]=function()local aa,ab,ac=a(101)local ad
-return(function(...)return function(ae,af)if ae.R==af.R and ae.G==af.G and ae.B==af.B then return true end return false
-end end)()end,[102]=function()local aa,ab,ac=a(102)local ad return(function(...)local ae={}for af=48,57 do table.insert(
-ae,string.char(af))end for af=65,90 do table.insert(ae,string.char(af))end for af=97,122 do table.insert(ae,string.char(
-af))end local function af(ag)if ag>0 then return af(ag-1)..ae[math.random(1,#ae)]else return''end end return af end)()
-end,[103]=function()local aa,ab,ac=a(103)local ad return(function(...)local ae,af,ag,ah={},{},ac(ab.Parent.Parent.
-Bundles.Fusion).Observer,ac(ab.Parent.get)function af.add(ai)if typeof(ah(ai))~='Instance'then ag(ai):onChange(function(
-)if typeof(ah(ai))=='Instance'then if not ae[ah(ai).Name]then ae[ah(ai).Name]=ah(ai)else warn(ah(ai).Name,
-' REF was already added')end end end)else if not ae[ah(ai).Name]then ae[ah(ai).Name]=ah(ai)else warn(ah(ai).Name,
+'Quake Window',Parent=ag,isMobile=true}local ai,aj,al=ah:Tab{Name='Quake Tab 1',Image='rbxassetid://10734908793'},ah:Tab
+{Name='Quake Tab 2',tabColor=Color3.fromRGB(255,120,222),Image='rbxassetid://10734919691'},ah:Tab{Name='Quake Tab 3',
+tabColor=Color3.fromRGB(65,253,123),Image='rbxassetid://10734950309'}ai:Button{Name='Quake Button',Callback=function()
+print'Quake Button'end}ai:Toggle{Name='Quake Toggle',Default=false,Callback=function(b)print('Quake Toggle',b)end}ai:
+Slider{Name='Quake Slider',Min=0,Max=100,InitialValue=0,Callback=function(b)print('Quake Slider',b)end}ai:Dropdown{Name=
+'Quake Multiselect Dropdown',Items={'Apple','Banana','Carrot','Dingleberry'},Default='Apple',Multiselect=true,Callback=
+function(b)print('Quake Dropdown',b)end}ai:TextBox{Name='Quake TextBox',Default='heyy',OnLeave=true,OnlyNumbers=true,
+Callback=function(b)print('Quake TextBox',b)end}ai:Keybind{Name='Quake Keybind',Default='F',Callback=function()ae:
+ToggleQuake()end}ai:ColorPicker{Name='Quake Color Picker',Color=Color3.fromHex'#a49ae6',Callback=function(b)print(
+'Quake Color Picker',b)end}ai:Label'Quake Label'ai:Section'Quake Section'ai:Paragraph{Title='Quake Paragraph',Body=
+'Quake Paragraph'}aj:Label'Quake Group Below'local b=aj:Group{Name='Quake Group',Icon='rbxassetid://10734950309'}b:
+Button{Name='Quake Button',Callback=function()print'Quake Button'end}b:Toggle{Name='Quake Toggle',Default=false,Callback
+=function(c)print('Quake Toggle',c)end}b:Slider{Name='Quake Slider',Min=0,Max=100,Step=1,InitialValue=0,Callback=
+function(c)print('Quake Slider',c)end}b:Dropdown{Name='Quake Dropdown',Items={'Apple','Banana','Carrot','Dingleberry'},
+Multiselect=false,Callback=function(c)print('Quake Dropdown',c)end}b:TextBox{Name='Quake TextBox',Default='',Callback=
+function(c)print('Quake TextBox',c)end}b:Keybind{Name='Quake Keybind',Default='E',Callback=function()print
+'Quake Keybind'end}b:ColorPicker{Name='Quake Color Picker',Color=Color3.fromHex'#a49ae6',Callback=function(c)print(
+'Quake Color Picker',c)end}b:Label'Quake Label'b:Section'Quake Section'b:Paragraph{Title='Quake Paragraph',Body=
+'Quake Paragraph'}aj:Dropdown{Name='Switch Theme',Items={'Dracula','Dark','Default','Eyebleed'},Default='Default',
+Callback=function(c)ae:SetCustomTheme(af[c])end}local c=al:Slider{Name='Slider To Lock',Max=150,Min=37,Callback=function
+(c)end}al:Toggle{Name='Lock Slider',Default=false,Callback=function(d)if d then c:Lock'Buy Premium!!'else c:Unlock()end
+end}return function()ae:Destroy()end end end)()end,[94]=function()local aa,ab,ac=a(94)local ad return(function(...)local
+ae=ac(ab.Parent.Parent.Bundles.Fusion)local af,ag=ae.Computed,ae.Spring return function(ah,ai,aj)return ag(af(ah),ai,aj)
+end end)()end,[95]=function()local aa,ab,ac=a(95)local ad return(function(...)local ae,af,ag={},{},ac(ab.Parent.Parent.
+Bundles.services)local ah=ag.ContextActionService function af.add(ai)table.insert(ae,ai)end function af.
+deleteConnections()for ai,aj in ae do aj:Disconnect()ae[ai]=nil end ah:UnbindAllActions()end return af end)()end,[96]=
+function()local aa,ab,ac=a(96)local ad return(function(...)local ae={}function ae.cloneref(af)if cloneref then return
+cloneref(af)else return af end end ae.getgenv=getgenv or nil return ae end)()end,[97]=function()local aa,ab,ac=a(97)
+local ad return(function(...)return function(ae,af)local ag,ah=ac(ab.Parent.Parent.Bundles.services),af or 10 local ai,
+aj,al,b,c,d,e=ag.UserInputService,ag.RunService,ae local function f(g,h,i)return g+(h-g)*i end local function g(h)if not
+(e)then return end if not(b)and(d)then al.Position=UDim2.new(e.X.Scale,f(al.Position.X.Offset,d.X.Offset,h*ah),e.Y.Scale
+,f(al.Position.Y.Offset,d.Y.Offset,h*ah))return end local i=(c-ai:GetMouseLocation())local j,k=(e.X.Offset-i.X),(e.Y.
+Offset-i.Y)d=UDim2.new(e.X.Scale,j,e.Y.Scale,k)al.Position=UDim2.new(e.X.Scale,f(al.Position.X.Offset,j,h*ah),e.Y.Scale,
+f(al.Position.Y.Offset,k,h*ah))end al.InputBegan:Connect(function(h)if h.UserInputType==Enum.UserInputType.MouseButton1
+or h.UserInputType==Enum.UserInputType.Touch then b=true e=al.Position c=ai:GetMouseLocation()h.Changed:Connect(function
+()if h.UserInputState==Enum.UserInputState.End then b=false end end)end end)local h=aj.Heartbeat:Connect(g)return h end
+end)()end,[98]=function()local aa,ab,ac=a(98)local ad return(function(...)return function(ae,af)if typeof(ae)=='table'
+and ae.type=='State'then return ae:get(af)end return ae end end)()end,[99]=function()local aa,ab,ac=a(99)local ad return
+(function(...)return function(ae:string,af)ae=ae or''af=af or{TextSize=14,Font=Enum.Font.Arial,VectorSize=Vector2.new(
+200,50)}local ag=game:GetService'TextService'return ag:GetTextSize(ae,af.TextSize,af.Font,af.VectorSize)end end)()end,[
+100]=function()local aa,ab,ac=a(100)local ad return(function(...)local ae,af=Color3.new(0,0,0),Color3.new(1,1,1)return
+function(ag:Color3,ah:string,ai:number)local aj=string.lower(ah)if ah=='black'then return ag:Lerp(ae,ai)elseif ah==
+'white'then return ag:Lerp(af,ai)else return error'hey its not white or black'end end end)()end,[101]=function()local aa
+,ab,ac=a(101)local ad return(function(...)return function(ae,af)if ae.R==af.R and ae.G==af.G and ae.B==af.B then return
+true end return false end end)()end,[102]=function()local aa,ab,ac=a(102)local ad return(function(...)local ae={}for af=
+48,57 do table.insert(ae,string.char(af))end for af=65,90 do table.insert(ae,string.char(af))end for af=97,122 do table.
+insert(ae,string.char(af))end local function af(ag)if ag>0 then return af(ag-1)..ae[math.random(1,#ae)]else return''end
+end return af end)()end,[103]=function()local aa,ab,ac=a(103)local ad return(function(...)local ae,af,ag,ah={},{},ac(ab.
+Parent.Parent.Bundles.Fusion).Observer,ac(ab.Parent.get)function af.add(ai)if typeof(ah(ai))~='Instance'then ag(ai):
+onChange(function()if typeof(ah(ai))=='Instance'then if not ae[ah(ai).Name]then ae[ah(ai).Name]=ah(ai)else warn(ah(ai).
+Name,' REF was already added')end end end)else if not ae[ah(ai).Name]then ae[ah(ai).Name]=ah(ai)else warn(ah(ai).Name,
 ' REF was already added')end end end function af.get(ai)if ae[ai]then return ae[ai]end end function af.remove(ai)if ae[
 ai]then ae[ai]=nil else warn(ai,"isn't in the references list")end end function af.clear()for ai,aj in ae do ae[ai]=nil
 if typeof(aj)=='Instance'then aj:Destroy()end end end return af end)()end,[104]=function()local aa,ab,ac=a(104)local ad
 return(function(...)local ae=ac(ab.Parent.Parent.Bundles.Fusion)local af=ae.Computed return function(ag,ah)return ae.
-Tween(af(ag),ah)end end)()end},{{1,2,{'quake'},{{93,1,{'utilities'},{{95,2,{'connections'}},{99,2,{'getStringBounds'}},{
-104,2,{'tween'}},{94,2,{'animate'}},{102,2,{'randomString'}},{98,2,{'get'}},{97,2,{'drag'}},{103,2,{'references'}},{101,
-2,{'matchColors'}},{96,2,{'customFunctions'}},{100,2,{'lerpColor'}}}},{73,1,{'components'},{{76,2,{'newDropdown'}},{77,2
-,{'newGroup'}},{80,2,{'newNotification'}},{81,2,{'newParagraph'}},{84,2,{'newTab'}},{78,2,{'newKeybind'}},{83,2,{
-'newSlider'}},{85,2,{'newTextBox'}},{79,2,{'newLabel'}},{86,2,{'newToggle'}},{82,2,{'newSection'}},{87,2,{'newWindow'}},
-{75,2,{'newColorPicker'}},{74,2,{'newButton'}}}},{91,2,{'preservedConfig'}},{88,1,{'platforms'},{{89,2,{'computer'}},{90
-,2,{'mobile'}}}},{2,1,{'Bundles'},{{3,2,{'Fusion'},{{48,2,{'Types'}},{40,1,{'State'},{{42,2,{'ForKeys'}},{43,2,{
-'ForPairs'}},{47,2,{'unwrap'}},{45,2,{'Observer'}},{46,2,{'Value'}},{41,2,{'Computed'}},{44,2,{'ForValues'}}}},{14,1,{
-'Colour'},{{15,2,{'Oklab'}}}},{22,1,{'Instances'},{{23,2,{'Children'}},{26,2,{'New'}},{29,2,{'Out'}},{25,2,{'Hydrate'}},
-{32,2,{'defaultProps'}},{24,2,{'Cleanup'}},{30,2,{'Ref'}},{27,2,{'OnChange'}},{28,2,{'OnEvent'}},{31,2,{
-'applyInstanceProps'}}}},{4,1,{'Animation'},{{13,2,{'unpackType'}},{11,2,{'packType'}},{9,2,{'getTweenRatio'}},{5,2,{
-'Spring'}},{10,2,{'lerpType'}},{8,2,{'TweenScheduler'}},{6,2,{'SpringScheduler'}},{12,2,{'springCoefficients'}},{7,2,{
-'Tween'}}}},{49,1,{'Utility'},{{55,2,{'restrictRead'}},{53,2,{'isSimilar'}},{56,2,{'xtypeof'}},{50,2,{'None'}},{51,2,{
-'cleanup'}},{52,2,{'doNothing'}},{54,2,{'needsDestruction'}}}},{39,2,{'PubTypes'}},{16,1,{'Dependencies'},{{20,2,{
-'updateAll'}},{18,2,{'initDependency'}},{17,2,{'captureDependencies'}},{19,2,{'sharedState'}},{21,2,{'useDependency'}}}}
-,{33,1,{'Logging'},{{37,2,{'messages'}},{38,2,{'parseError'}},{34,2,{'logError'}},{36,2,{'logWarn'}},{35,2,{
-'logErrorNonFatal'}}}}}},{68,2,{'data'}},{57,2,{'betterMathModule'},{{59,3,{'CLASS_Sequence'}},{63,3,{'CLASS_Notation'}}
-,{58,3,{'CLASS_Value'}},{64,3,{'CLASS_Matrix'}},{60,3,{'CLASS_String'}},{67,3,{'CLASS_Chance'}},{65,3,{'CLASS_Random'}},
-{62,3,{'CLASS_Check'}},{66,3,{'Class_Special'}},{61,3,{'CLASS_Convert'}}}},{69,2,{'icons'}},{70,2,{'services'}},{71,2,{
-'themeSystem'},{{72,2,{'default'}}}}}},{92,2,{'project.story'}}}}},'0.4.1','WaxRuntime',string,task,setmetatable,error,
-next,table,unpack,coroutine,script,type,require,pcall,tostring,tonumber,_VERSION local k,l,m,p,q,t,u=aj.insert,aj.remove
-,aj.freeze or function(k)return k end,b.wrap,ae.sub,ae.match,ae.gmatch if i and q(i,1,4)=='Lune'then local F,G=f(e,
-'@lune/task')if F and G then af=G end end local F=af and af.defer local G,H,I,K,L,M,N,O,P=F or function(G,...)p(G)(...)
-end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local Q,R={
-GetFullName={{},function(Q)local R,S=Q.Name,Q.Parent while S do R=S.Name..'.'..R S=S.Parent end return R end},
-GetChildren={{},function(Q)local R={}for S in ai,P[Q]do k(R,S)end return R end},GetDescendants={{},function(Q)local R={}
-for S in ai,P[Q]do k(R,S)for T,U in ai,S:GetDescendants()do k(R,U)end end return R end},FindFirstChild={{'string',
-'boolean?'},function(Q,R,S)local T=P[Q]for U in ai,T do if U.Name==R then return U end end if S then for V in ai,T do
-return V:FindFirstChild(R,true)end end end},FindFirstAncestor={{'string'},function(Q,R)local S=Q.Parent while S do if S.
-Name==R then return S end S=S.Parent end end},WaitForChild={{'string','number?'},function(Q,R)return Q:FindFirstChild(R)
-end}},{}for S,T in ai,Q do local U,V,W=T[1],T[2],{}for X,Z in ai,U do local _,am=t(Z,'^([^%?]+)(%??)')W[X]={_,am}end R[S
-]=function(am,...)if not P[am]then ah("Expected ':' not '.' calling member function "..S,2)end local _={...}for an,ao in
-ai,W do local ap=_[an]local aq,ar,as=d(ap),ao[1],ao[2]if ap==nil and not as then ah('Argument '..ap..' missing or nil',3
-)end if ar~='any'and aq~=ar and not(aq=='nil'and as)then ah('Argument '..an..' expects type "'..ar..'", got "'..aq..'"',
-2)end end return V(am,...)end end local function am(an,ao,ap)local aq,ar=(ag({},{__mode='k'}))local function as(U)ah(U..
+Tween(af(ag),ah)end end)()end},{{1,2,{'quake'},{{93,1,{'utilities'},{{103,2,{'references'}},{95,2,{'connections'}},{97,2
+,{'drag'}},{96,2,{'customFunctions'}},{99,2,{'getStringBounds'}},{104,2,{'tween'}},{98,2,{'get'}},{94,2,{'animate'}},{
+101,2,{'matchColors'}},{100,2,{'lerpColor'}},{102,2,{'randomString'}}}},{2,1,{'Bundles'},{{57,2,{'betterMathModule'},{{
+62,3,{'CLASS_Check'}},{61,3,{'CLASS_Convert'}},{63,3,{'CLASS_Notation'}},{59,3,{'CLASS_Sequence'}},{65,3,{'CLASS_Random'
+}},{58,3,{'CLASS_Value'}},{67,3,{'CLASS_Chance'}},{64,3,{'CLASS_Matrix'}},{60,3,{'CLASS_String'}},{66,3,{'Class_Special'
+}}}},{68,2,{'data'}},{3,2,{'Fusion'},{{14,1,{'Colour'},{{15,2,{'Oklab'}}}},{40,1,{'State'},{{41,2,{'Computed'}},{43,2,{
+'ForPairs'}},{47,2,{'unwrap'}},{45,2,{'Observer'}},{42,2,{'ForKeys'}},{44,2,{'ForValues'}},{46,2,{'Value'}}}},{16,1,{
+'Dependencies'},{{19,2,{'sharedState'}},{17,2,{'captureDependencies'}},{18,2,{'initDependency'}},{20,2,{'updateAll'}},{
+21,2,{'useDependency'}}}},{33,1,{'Logging'},{{36,2,{'logWarn'}},{35,2,{'logErrorNonFatal'}},{37,2,{'messages'}},{38,2,{
+'parseError'}},{34,2,{'logError'}}}},{49,1,{'Utility'},{{52,2,{'doNothing'}},{51,2,{'cleanup'}},{50,2,{'None'}},{53,2,{
+'isSimilar'}},{54,2,{'needsDestruction'}},{55,2,{'restrictRead'}},{56,2,{'xtypeof'}}}},{39,2,{'PubTypes'}},{4,1,{
+'Animation'},{{8,2,{'TweenScheduler'}},{7,2,{'Tween'}},{13,2,{'unpackType'}},{10,2,{'lerpType'}},{9,2,{'getTweenRatio'}}
+,{6,2,{'SpringScheduler'}},{5,2,{'Spring'}},{11,2,{'packType'}},{12,2,{'springCoefficients'}}}},{48,2,{'Types'}},{22,1,{
+'Instances'},{{27,2,{'OnChange'}},{28,2,{'OnEvent'}},{30,2,{'Ref'}},{23,2,{'Children'}},{25,2,{'Hydrate'}},{26,2,{'New'}
+},{24,2,{'Cleanup'}},{31,2,{'applyInstanceProps'}},{32,2,{'defaultProps'}},{29,2,{'Out'}}}}}},{69,2,{'icons'}},{71,2,{
+'themeSystem'},{{72,2,{'default'}}}},{70,2,{'services'}}}},{88,1,{'platforms'},{{89,2,{'computer'}},{90,2,{'mobile'}}}},
+{73,1,{'components'},{{86,2,{'newToggle'}},{78,2,{'newKeybind'}},{87,2,{'newWindow'}},{74,2,{'newButton'}},{75,2,{
+'newColorPicker'}},{79,2,{'newLabel'}},{85,2,{'newTextBox'}},{76,2,{'newDropdown'}},{84,2,{'newTab'}},{80,2,{
+'newNotification'}},{77,2,{'newGroup'}},{82,2,{'newSection'}},{83,2,{'newSlider'}},{81,2,{'newParagraph'}}}},{92,2,{
+'project.story'}},{91,2,{'preservedConfig'}}}}},'0.4.1','WaxRuntime',string,task,setmetatable,error,next,table,unpack,
+coroutine,script,type,require,pcall,tostring,tonumber,_VERSION local k,l,m,p,q,t,u=aj.insert,aj.remove,aj.freeze or
+function(k)return k end,b.wrap,ae.sub,ae.match,ae.gmatch if i and q(i,1,4)=='Lune'then local F,G=f(e,'@lune/task')if F
+and G then af=G end end local F=af and af.defer local G,H,I,K,L,M,N,O,P=F or function(G,...)p(G)(...)end,{[1]='Folder',[
+2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local Q,R={GetFullName={{},
+function(Q)local R,S=Q.Name,Q.Parent while S do R=S.Name..'.'..R S=S.Parent end return R end},GetChildren={{},function(Q
+)local R={}for S in ai,P[Q]do k(R,S)end return R end},GetDescendants={{},function(Q)local R={}for S in ai,P[Q]do k(R,S)
+for T,U in ai,S:GetDescendants()do k(R,U)end end return R end},FindFirstChild={{'string','boolean?'},function(Q,R,S)
+local T=P[Q]for U in ai,T do if U.Name==R then return U end end if S then for V in ai,T do return V:FindFirstChild(R,
+true)end end end},FindFirstAncestor={{'string'},function(Q,R)local S=Q.Parent while S do if S.Name==R then return S end
+S=S.Parent end end},WaitForChild={{'string','number?'},function(Q,R)return Q:FindFirstChild(R)end}},{}for S,T in ai,Q do
+local U,V,W=T[1],T[2],{}for X,Z in ai,U do local _,am=t(Z,'^([^%?]+)(%??)')W[X]={_,am}end R[S]=function(am,...)if not P[
+am]then ah("Expected ':' not '.' calling member function "..S,2)end local _={...}for an,ao in ai,W do local ap=_[an]
+local aq,ar,as=d(ap),ao[1],ao[2]if ap==nil and not as then ah('Argument '..ap..' missing or nil',3)end if ar~='any'and
+aq~=ar and not(aq=='nil'and as)then ah('Argument '..an..' expects type "'..ar..'", got "'..aq..'"',2)end end return V(am
+,...)end end local function am(an,ao,ap)local aq,ar=(ag({},{__mode='k'}))local function as(U)ah(U..
 ' is not a valid (virtual) member of '..an..' "'..ao..'"',3)end local function U(V)ah(
 'Unable to assign (virtual) property '..V..'. Property is read only',3)end local V,W={},{}W.__metatable=false W.__index=
 function(X,Z)if Z=='ClassName'then return an elseif Z=='Name'then return ao elseif Z=='Parent'then return ap elseif an==

@@ -14,7 +14,7 @@ function quake:Window(windowProperty)
 	assert(windowProperty.Title, ":Window needs a Title")
 
 	windowProperty.Parent = windowProperty.Parent or game.CoreGui
-	windowProperty.KeyCode = windowProperty.KeyCode or Enum.KeyCode.Q
+	windowProperty.KeyCode = windowProperty.KeyCode or nil
 	windowProperty.isMobile = windowProperty.isMobile or false
 	theme.create(windowProperty.CustomTheme or {})
 	if windowProperty.Size then
