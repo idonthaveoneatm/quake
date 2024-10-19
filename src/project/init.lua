@@ -2,6 +2,7 @@ local theme = require(script.Bundles.themeSystem)
 local data = require(script.Bundles.data)
 local references = require(script.utilities.references)
 local connections = require(script.utilities.connections)
+local get = require(script.utilities.get)
 
 local function addComponent(name, parent, properties)
 	properties.Parent = parent
@@ -36,6 +37,8 @@ function quake:Window(windowProperty)
 
 	-- Data
 
+	local isToggled = data.add({boolean = true}, "isToggled")
+	data.add({EnumItem = windowProperty.KeyCode}, "keyCode")
 	data.add({data = {}}, "selectedTab")
 	data.add({boolean = false}, "selectedFirst")
 	local window_data = data.add({data = windowProperty})
@@ -159,6 +162,9 @@ function quake:Window(windowProperty)
 		connections.deleteConnections()
 		references.clear()
 		platform:Destroy()
+	end
+	function quake:ToggleQuake()
+		isToggled:update("boolean", not get(isToggled.boolean))
 	end
 	function quake.Windows:Notify(NotificationProperty)
 		return addComponent("Notification", notificationList, NotificationProperty)

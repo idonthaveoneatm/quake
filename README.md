@@ -109,6 +109,9 @@ tab1:Keybind({
     Default = "E",
     Callback = function()
         print("Quake Keybind")
+        quake:ToggleQuake() 
+        -- runs the function for the optional KeyCode variable 
+        -- if you want the user to change how to toggle the interface
     end
 })
 tab1:ColorPicker({

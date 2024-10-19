@@ -39,6 +39,8 @@ return function(target)
         Title = "Quake Window",
         Parent = target,
         isMobile = true,
+
+        KeyCode = Enum.KeyCode.Q
     })
 
     local tab1 = window:Tab({
@@ -98,9 +100,9 @@ return function(target)
     })
     tab1:Keybind({
         Name = "Quake Keybind",
-        Default = "E",
+        Default = "F",
         Callback = function()
-            print("Quake Keybind")
+            project:ToggleQuake()
         end
     })
     tab1:ColorPicker({

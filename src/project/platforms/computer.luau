@@ -25,10 +25,10 @@ return function(windowProperty)
 
 	local selectedTab = data.find("selectedTab")
 
-	local keyCode = windowProperty.KeyCode
+	local keyCode = data.find("keyCode")
     local draggingFrameRef = value()
     local isClosed = value(false)
-	local isToggled = value(true)
+	local isToggled = data.find("isToggled")
 	local isResizing = value(false)
 	local containerX = value(windowProperty.Size.X)
 	local containerY = value(windowProperty.Size.Y)
@@ -56,8 +56,8 @@ return function(windowProperty)
 	end)
 
 	local isToggledConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
-		if not gameProcessed and input.KeyCode and input.KeyCode == keyCode then
-			isToggled:set(not get(isToggled))
+		if not gameProcessed and input.KeyCode and input.KeyCode == get(keyCode.EnumItem) then
+			isToggled:update("boolean", not get(isToggled.boolean))
 		end
 	end)
 
@@ -67,7 +67,7 @@ return function(windowProperty)
 		IgnoreGuiInset = true,
 		ResetOnSpawn = false,
 		Enabled = computed(function()
-			return get(isToggled)
+			return get(isToggled.boolean)
 		end),
 
 		[onevent "Destroying"] = function()

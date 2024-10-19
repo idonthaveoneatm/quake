@@ -10,6 +10,7 @@ local children = Fusion.Children
 local value = Fusion.Value
 local ref = Fusion.Ref
 local observe = Fusion.Observer
+local computed = Fusion.Computed
 
 local get = require(project.utilities.get)
 local theme = require(project.Bundles.themeSystem)
@@ -22,8 +23,8 @@ return function(windowProperty)
     local selectedTab = data.find("selectedTab")
 
     local isOpen = value(false)
-    local isToggled = value(true)
-    local keyCode = windowProperty.KeyCode
+    local isToggled = data.find("isToggled")
+    local keyCode = data.find("keyCode")
 
 	local sideBarRef = value()
 	references.add(sideBarRef)
@@ -35,8 +36,8 @@ return function(windowProperty)
 	references.add(notificationListRef)
 
     local isToggledConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
-		if not gameProcessed and input.KeyCode and input.KeyCode == keyCode then
-			isToggled:set(not get(isToggled))
+		if not gameProcessed and input.KeyCode and input.KeyCode == get(keyCode.EnumItem) then
+			isToggled:update("boolean", not get(isToggled.boolean))
 		end
 	end)
 
@@ -51,6 +52,9 @@ return function(windowProperty)
         Parent = windowProperty.Parent,
         IgnoreGuiInset = false,
 		ResetOnSpawn = false,
+        Enabled = computed(function()
+			return get(isToggled.boolean)
+		end),
 
         [onevent "Destroying"] = function()
             isToggledConnection:Disconnect()

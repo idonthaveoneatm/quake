@@ -1,114 +1,116 @@
 local a local aa,ab,ac,ad,ae,af,ag,ah,ai,aj,al,b,c,d,e,f,g,h,i,j={function()local b,c,d=a(1)local e return(function(...)
-local f,g,h,i=d(c.Bundles.themeSystem),d(c.Bundles.data),d(c.utilities.references),d(c.utilities.connections)
-local function j(k,l,m)m.Parent=l return d(c.components['new'..k])(m)end local k={}function k.Window(l,m)assert(m.Title,
-':Window needs a Title')m.Parent=m.Parent or game.CoreGui m.KeyCode=m.KeyCode or Enum.KeyCode.Q m.isMobile=m.isMobile or
-false f.create(m.CustomTheme or{})if m.Size then m.Size.X=m.Size.X or 550 m.Size.Y=m.Size.Y or 400 math.clamp(m.Size.X,
-550,9e9)math.clamp(m.Size.Y,400,9e9)elseif not m.Size then m.Size={X=550,Y=400}end if m.Parent:FindFirstChild(m.Title)
-then m.Parent:FindFirstChild(m.Title):Destroy()end local n,o=d(c.platforms.mobile),d(c.platforms.computer)g.add({data={}
-},'selectedTab')g.add({boolean=false},'selectedFirst')local p=g.add{data=m}m.uid=p.uid local q,r,s,t=m.isMobile and n(m)
-or o(m),h.get'windowsList',h.get'sideBar',h.get'notificationList'k.Windows={}function k.Windows.Tab(u,v)local w=g.add{
-data=v}v.uid=w.uid v.tabPage=j('Window',r,v)local x=v.tabPage v.tabButton=j('Tab',s,{tab_data=w})w:update('data',v)k.
-Windows.Component={}function k.Windows.Component.Button(y,z)z.tabColor=v.tabColor return j('Button',x,z)end function k.
-Windows.Component.Toggle(y,z)z.tabColor=v.tabColor return j('Toggle',x,z)end function k.Windows.Component.TextBox(y,z)z.
-tabColor=v.tabColor return j('TextBox',x,z)end function k.Windows.Component.Keybind(y,z)z.tabColor=v.tabColor return j(
-'Keybind',x,z)end function k.Windows.Component.Dropdown(y,z)z.tabColor=v.tabColor return j('Dropdown',x,z)end function k
-.Windows.Component.Slider(y,z)z.tabColor=v.tabColor return j('Slider',x,z)end function k.Windows.Component.Section(y,z:
-string)return j('Section',x,{Text=z})end function k.Windows.Component.Paragraph(y,z)z.tabColor=v.tabColor return j(
-'Paragraph',x,z)end function k.Windows.Component.Label(y,z:string)local A={Text=z,tabColor=v.tabColor}return j('Label',x
-,A)end function k.Windows.Component.Group(y,z)z.tabColor=v.tabColor local A,B=j('Group',x,z)function B.Button(C,D)D.
-tabColor=v.tabColor return j('Button',A,D)end function B.Toggle(C,D)D.tabColor=v.tabColor return j('Toggle',A,D)end
-function B.TextBox(C,D)D.tabColor=v.tabColor return j('TextBox',A,D)end function B.Keybind(C,D)D.tabColor=v.tabColor
-return j('Keybind',A,D)end function B.Dropdown(C,D)D.tabColor=v.tabColor return j('Dropdown',A,D)end function B.Slider(C
-,D)D.tabColor=v.tabColor return j('Slider',A,D)end function B.Section(C,D:string)return j('Section',A,{Text=D})end
-function B.Paragraph(C,D)D.tabColor=v.tabColor return j('Paragraph',A,D)end function B.Label(C,D:string)local E={Text=D,
-tabColor=v.tabColor}return j('Label',A,E)end function B.ColorPicker(C,D)D.tabColor=v.tabColor return j('ColorPicker',A,D
-)end return B end function k.Windows.Component.ColorPicker(y,z)z.tabColor=v.tabColor return j('ColorPicker',x,z)end
-return k.Windows.Component end function k.SetCustomTheme(u,v)f.create(v)end function k.Destroy(u)i.deleteConnections()h.
-clear()q:Destroy()end function k.Windows.Notify(u,v)return j('Notification',t,v)end return k.Windows end return k end)()
-end,[3]=function()local b,c,d=a(3)local e return(function(...)local f,g=d(c.PubTypes),d(c.Utility.restrictRead)export
-type StateObject<T> =PubTypes.StateObject<T>export type CanBeState<T> =PubTypes.CanBeState<T>export type Symbol=PubTypes
-.Symbol export type Value<T> =PubTypes.Value<T>export type Computed<T> =PubTypes.Computed<T>export type ForPairs<KO,VO>
-=PubTypes.ForPairs<KO,VO>export type ForKeys<KI,KO> =PubTypes.ForKeys<KI,KO>export type ForValues<VI,VO> =PubTypes.
-ForKeys<VI,VO>export type Observer=PubTypes.Observer export type Tween<T> =PubTypes.Tween<T>export type Spring<T> =
-PubTypes.Spring<T>type Fusion={version:PubTypes.Version,New:(className:string)->((propertyTable:PubTypes.PropertyTable
-)->Instance),Hydrate:(target:Instance)->((propertyTable:PubTypes.PropertyTable)->Instance),Ref:PubTypes.SpecialKey,
-Cleanup:PubTypes.SpecialKey,Children:PubTypes.SpecialKey,Out:PubTypes.SpecialKey,OnEvent:(eventName:string)->PubTypes.
-SpecialKey,OnChange:(propertyName:string)->PubTypes.SpecialKey,Value:<T>(initialValue:T)->Value<T>,Computed:<T>(callback
-:()->T,destructor:((T)->())?)->Computed<T>,ForPairs:<KI,VI,KO,VO,M>(inputTable:CanBeState<{[KI]:VI}>,processor:(KI,VI)->
-(KO,VO,M?),destructor:((KO,VO,M?)->())?)->ForPairs<KO,VO>,ForKeys:<KI,KO,M>(inputTable:CanBeState<{[KI]:any}>,processor:
-(KI)->(KO,M?),destructor:((KO,M?)->())?)->ForKeys<KO,any>,ForValues:<VI,VO,M>(inputTable:CanBeState<{[any]:VI}>,
-processor:(VI)->(VO,M?),destructor:((VO,M?)->())?)->ForValues<any,VO>,Observer:(watchedState:StateObject<any>)->Observer
-,Tween:<T>(goalState:StateObject<T>,tweenInfo:TweenInfo?)->Tween<T>,Spring:<T>(goalState:StateObject<T>,speed:number?,
-damping:number?)->Spring<T>,cleanup:(...any)->(),doNothing:(...any)->()}return g('Fusion',{version={major=0,minor=2,
-isRelease=true},New=d(c.Instances.New),Hydrate=d(c.Instances.Hydrate),Ref=d(c.Instances.Ref),Out=d(c.Instances.Out),
-Cleanup=d(c.Instances.Cleanup),Children=d(c.Instances.Children),OnEvent=d(c.Instances.OnEvent),OnChange=d(c.Instances.
-OnChange),Value=d(c.State.Value),Computed=d(c.State.Computed),ForPairs=d(c.State.ForPairs),ForKeys=d(c.State.ForKeys),
-ForValues=d(c.State.ForValues),Observer=d(c.State.Observer),Tween=d(c.Animation.Tween),Spring=d(c.Animation.Spring),
-cleanup=d(c.Utility.cleanup),doNothing=d(c.Utility.doNothing)})::Fusion end)()end,[5]=function()local b,c,d=a(5)local e
-return(function(...)local f=c.Parent.Parent local g,h,i,j,k,l,m,n,o,p,q,r=d(f.PubTypes),d(f.Types),d(f.Logging.logError)
-,d(f.Logging.logErrorNonFatal),d(f.Animation.unpackType),d(f.Animation.SpringScheduler),d(f.Dependencies.useDependency),
-d(f.Dependencies.initDependency),d(f.Dependencies.updateAll),d(f.Utility.xtypeof),d(f.State.unwrap),{}local s,t={__index
-=r},{__mode='k'}function r.get(u,v:boolean?):any if v~=false then m(u)end return u._currentValue end function r.
-setPosition(u,v:PubTypes.Animatable)local w=typeof(v)if w~=u._currentType then i('springTypeMismatch',nil,w,u.
-_currentType)end u._springPositions=k(v,w)u._currentValue=v l.add(u)o(u)end function r.setVelocity(u,v:PubTypes.
-Animatable)local w=typeof(v)if w~=u._currentType then i('springTypeMismatch',nil,w,u._currentType)end u.
-_springVelocities=k(v,w)l.add(u)end function r.addVelocity(u,v:PubTypes.Animatable)local w=typeof(v)if w~=u._currentType
-then i('springTypeMismatch',nil,w,u._currentType)end local x=k(v,w)for y,z in ipairs(x)do u._springVelocities[y]+=z end
-l.add(u)end function r.update(u):boolean local v=u._goalState:get(false)if v==u._goalValue then local w=q(u._damping)if
-typeof(w)~='number'then j('mistypedSpringDamping',nil,typeof(w))elseif w<0 then j('invalidSpringDamping',nil,w)else u.
-_currentDamping=w end local x=q(u._speed)if typeof(x)~='number'then j('mistypedSpringSpeed',nil,typeof(x))elseif x<0
-then j('invalidSpringSpeed',nil,x)else u._currentSpeed=x end return false else u._goalValue=v local w,x=u._currentType,
-typeof(v)u._currentType=x local y=k(v,x)local z=#y u._springGoals=y if x~=w then u._currentValue=u._goalValue local A,B=
-table.create(z,0),table.create(z,0)for C,D in ipairs(y)do A[C]=D end u._springPositions=A u._springVelocities=B l.
-remove(u)return true elseif z==0 then u._currentValue=u._goalValue return true else l.add(u)return false end end end
-local function u<T>(v:PubTypes.Value<T>,w:PubTypes.CanBeState<number>?,x:PubTypes.CanBeState<number>?):Types.Spring<T>if
-w==nil then w=10 end if x==nil then x=1 end local y={[v]=true}if p(w)=='State'then y[w]=true end if p(x)=='State'then y[
-x]=true end local z=setmetatable({type='State',kind='Spring',dependencySet=y,dependentSet=setmetatable({},t),_speed=w,
-_damping=x,_goalState=v,_goalValue=nil,_currentType=nil,_currentValue=nil,_currentSpeed=q(w),_currentDamping=q(x),
-_springPositions=nil,_springGoals=nil,_springVelocities=nil},s)n(z)v.dependentSet[z]=true z:update()return z end return
-u end)()end,[6]=function()local b,c,d=a(6)local e return(function(...)local f,g=game:GetService'RunService',c.Parent.
-Parent local h,i,j,k=d(g.Types),d(g.Animation.packType),d(g.Animation.springCoefficients),d(g.Dependencies.updateAll)
-type Set<T> ={[T]:any}type Spring=Types.Spring<any>local l,m,n:Set<Spring>,o={},0.0001,{},os.clock()function l.add(p:
-Spring)p._lastSchedule=o p._startDisplacements={}p._startVelocities={}for q,r in ipairs(p._springGoals)do p.
-_startDisplacements[q]=p._springPositions[q]-r p._startVelocities[q]=p._springVelocities[q]end n[p]=true end function l.
-remove(p:Spring)n[p]=nil end local function p()local q:Set<Spring> ={}o=os.clock()for r in pairs(n)do local s,t,u,v=j(o-
-r._lastSchedule,r._currentDamping,r._currentSpeed)local w,x,y,z,A=r._springPositions,r._springVelocities,r.
-_startDisplacements,r._startVelocities,false for B,C in ipairs(r._springGoals)do local D,E=y[B],z[B]local F,G=D*s+E*t,D*
-u+E*v if math.abs(F)>m or math.abs(G)>m then A=true end w[B]=F+C x[B]=G end if not A then q[r]=true end end for s in
-pairs(n)do s._currentValue=i(s._springPositions,s._currentType)k(s)end for t in pairs(q)do n[t]=nil end end f:
-BindToRenderStep('__FusionSpringScheduler',Enum.RenderPriority.First.Value,p)return l end)()end,[7]=function()local b,c,
-d=a(7)local e return(function(...)local f=c.Parent.Parent local g,h,i,j,k,l,m,n,o=d(f.PubTypes),d(f.Types),d(f.Animation
-.TweenScheduler),d(f.Dependencies.useDependency),d(f.Dependencies.initDependency),d(f.Logging.logError),d(f.Logging.
-logErrorNonFatal),d(f.Utility.xtypeof),{}local p,q={__index=o},{__mode='k'}function o.get(t,u:boolean?):any if u~=false
-then j(t)end return t._currentValue end function o.update(t):boolean local u=t._goalState:get(false)if u==t._nextValue
-and not t._currentlyAnimating then return false end local v=t._tweenInfo if t._tweenInfoIsState then v=v:get()end if
-typeof(v)~='TweenInfo'then m('mistypedTweenInfo',nil,typeof(v))return false end t._prevValue=t._currentValue t.
-_nextValue=u t._currentTweenStartTime=os.clock()t._currentTweenInfo=v local w=v.DelayTime+v.Time if v.Reverses then w+=v
-.Time end w*=v.RepeatCount+1 t._currentTweenDuration=w i.add(t)return false end local function t<T>(u:PubTypes.
-StateObject<PubTypes.Animatable>,v:PubTypes.CanBeState<TweenInfo>?):Types.Tween<T>local w=u:get(false)if v==nil then v=
-TweenInfo.new()end local x,y={[u]=true},n(v)=='State'if y then x[v]=true end local z=v if y then z=z:get()end if typeof(
-z)~='TweenInfo'then l('mistypedTweenInfo',nil,typeof(z))end local A=setmetatable({type='State',kind='Tween',
-dependencySet=x,dependentSet=setmetatable({},q),_goalState=u,_tweenInfo=v,_tweenInfoIsState=y,_prevValue=w,_nextValue=w,
-_currentValue=w,_currentTweenInfo=v,_currentTweenDuration=0,_currentTweenStartTime=0,_currentlyAnimating=false},p)k(A)u.
-dependentSet[A]=true return A end return t end)()end,[8]=function()local b,c,d=a(8)local e return(function(...)local f,g
-=game:GetService'RunService',c.Parent.Parent local h,i,j,k,l=d(g.Types),d(g.Animation.lerpType),d(g.Animation.
-getTweenRatio),d(g.Dependencies.updateAll),{}type Set<T> ={[T]:any}type Tween=Types.Tween<any>local m,n:Set<Tween> ={
-__mode='k'},{}setmetatable(n,m)function l.add(o:Tween)n[o]=true end function l.remove(o:Tween)n[o]=nil end
-local function o()local p=os.clock()for q:Tween in pairs(n::any)do local t=p-q._currentTweenStartTime if t>q.
-_currentTweenDuration then if q._currentTweenInfo.Reverses then q._currentValue=q._prevValue else q._currentValue=q.
-_nextValue end q._currentlyAnimating=false k(q)l.remove(q)else local u=j(q._currentTweenInfo,t)local v=i(q._prevValue,q.
-_nextValue,u)q._currentValue=v q._currentlyAnimating=true k(q)end end end f:BindToRenderStep('__FusionTweenScheduler',
-Enum.RenderPriority.First.Value,o)return l end)()end,[9]=function()local b,c,d=a(9)local e return(function(...)local f=
-game:GetService'TweenService'local function g(h:TweenInfo,i:number):number local j,k,l,m,n,o=h.DelayTime,h.Time,h.
-Reverses,1+h.RepeatCount,h.EasingStyle,h.EasingDirection local p=j+k if l then p+=k end if i>=p*m then return 1 end
-local q=i%p if q<=j then return 0 end local t=(q-j)/k if t>1 then t=2-t end local u=f:GetValue(t,n,o)return u end return
-g end)()end,[10]=function()local b,c,d=a(10)local e return(function(...)local f=c.Parent.Parent local g,h=d(f.PubTypes),
-d(f.Colour.Oklab)local function i(j:any,k:any,l:number):any local m=typeof(j)if typeof(k)==m then if m=='number'then
-local n,o=k::number,j::number return(n-o)*l+o elseif m=='CFrame'then local n,o=k::CFrame,j::CFrame return o:Lerp(n,l)
-elseif m=='Color3'then local n,o=k::Color3,j::Color3 local p,q=h.to(o),h.to(n)return h.from(p:Lerp(q,l),false)elseif m==
-'ColorSequenceKeypoint'then local n,o=k::ColorSequenceKeypoint,j::ColorSequenceKeypoint local p,q=h.to(o.Value),h.to(n.
-Value)return ColorSequenceKeypoint.new((n.Time-o.Time)*l+o.Time,h.from(p:Lerp(q,l),false))elseif m=='DateTime'then local
-n,o=k::DateTime,j::DateTime return DateTime.fromUnixTimestampMillis((n.UnixTimestampMillis-o.UnixTimestampMillis)*l+o.
+local f,g,h,i,j=d(c.Bundles.themeSystem),d(c.Bundles.data),d(c.utilities.references),d(c.utilities.connections),d(c.
+utilities.get)local function k(l,m,n)n.Parent=m return d(c.components['new'..l])(n)end local l={}function l.Window(m,n)
+assert(n.Title,':Window needs a Title')n.Parent=n.Parent or game.CoreGui n.KeyCode=n.KeyCode or Enum.KeyCode.Q n.
+isMobile=n.isMobile or false f.create(n.CustomTheme or{})if n.Size then n.Size.X=n.Size.X or 550 n.Size.Y=n.Size.Y or
+400 math.clamp(n.Size.X,550,9e9)math.clamp(n.Size.Y,400,9e9)elseif not n.Size then n.Size={X=550,Y=400}end if n.Parent:
+FindFirstChild(n.Title)then n.Parent:FindFirstChild(n.Title):Destroy()end local o,p,q=d(c.platforms.mobile),d(c.
+platforms.computer),g.add({boolean=true},'isToggled')g.add({EnumItem=n.KeyCode},'keyCode')g.add({data={}},'selectedTab')
+g.add({boolean=false},'selectedFirst')local r=g.add{data=n}n.uid=r.uid local s,t,u,v=n.isMobile and o(n)or p(n),h.get
+'windowsList',h.get'sideBar',h.get'notificationList'l.Windows={}function l.Windows.Tab(w,x)local y=g.add{data=x}x.uid=y.
+uid x.tabPage=k('Window',t,x)local z=x.tabPage x.tabButton=k('Tab',u,{tab_data=y})y:update('data',x)l.Windows.Component=
+{}function l.Windows.Component.Button(A,B)B.tabColor=x.tabColor return k('Button',z,B)end function l.Windows.Component.
+Toggle(A,B)B.tabColor=x.tabColor return k('Toggle',z,B)end function l.Windows.Component.TextBox(A,B)B.tabColor=x.
+tabColor return k('TextBox',z,B)end function l.Windows.Component.Keybind(A,B)B.tabColor=x.tabColor return k('Keybind',z,
+B)end function l.Windows.Component.Dropdown(A,B)B.tabColor=x.tabColor return k('Dropdown',z,B)end function l.Windows.
+Component.Slider(A,B)B.tabColor=x.tabColor return k('Slider',z,B)end function l.Windows.Component.Section(A,B:string)
+return k('Section',z,{Text=B})end function l.Windows.Component.Paragraph(A,B)B.tabColor=x.tabColor return k('Paragraph',
+z,B)end function l.Windows.Component.Label(A,B:string)local C={Text=B,tabColor=x.tabColor}return k('Label',z,C)end
+function l.Windows.Component.Group(A,B)B.tabColor=x.tabColor local C,D=k('Group',z,B)function D.Button(E,F)F.tabColor=x.
+tabColor return k('Button',C,F)end function D.Toggle(E,F)F.tabColor=x.tabColor return k('Toggle',C,F)end function D.
+TextBox(E,F)F.tabColor=x.tabColor return k('TextBox',C,F)end function D.Keybind(E,F)F.tabColor=x.tabColor return k(
+'Keybind',C,F)end function D.Dropdown(E,F)F.tabColor=x.tabColor return k('Dropdown',C,F)end function D.Slider(E,F)F.
+tabColor=x.tabColor return k('Slider',C,F)end function D.Section(E,F:string)return k('Section',C,{Text=F})end function D
+.Paragraph(E,F)F.tabColor=x.tabColor return k('Paragraph',C,F)end function D.Label(E,F:string)local G={Text=F,tabColor=x
+.tabColor}return k('Label',C,G)end function D.ColorPicker(E,F)F.tabColor=x.tabColor return k('ColorPicker',C,F)end
+return D end function l.Windows.Component.ColorPicker(A,B)B.tabColor=x.tabColor return k('ColorPicker',z,B)end return l.
+Windows.Component end function l.SetCustomTheme(w,x)f.create(x)end function l.Destroy(w)i.deleteConnections()h.clear()s:
+Destroy()end function l.ToggleQuake(w)q:update('boolean',not j(q.boolean))end function l.Windows.Notify(w,x)return k(
+'Notification',v,x)end return l.Windows end return l end)()end,[3]=function()local b,c,d=a(3)local e return(function(...
+)local f,g=d(c.PubTypes),d(c.Utility.restrictRead)export type StateObject<T> =PubTypes.StateObject<T>export type
+CanBeState<T> =PubTypes.CanBeState<T>export type Symbol=PubTypes.Symbol export type Value<T> =PubTypes.Value<T>export
+type Computed<T> =PubTypes.Computed<T>export type ForPairs<KO,VO> =PubTypes.ForPairs<KO,VO>export type ForKeys<KI,KO> =
+PubTypes.ForKeys<KI,KO>export type ForValues<VI,VO> =PubTypes.ForKeys<VI,VO>export type Observer=PubTypes.Observer
+export type Tween<T> =PubTypes.Tween<T>export type Spring<T> =PubTypes.Spring<T>type Fusion={version:PubTypes.Version,
+New:(className:string)->((propertyTable:PubTypes.PropertyTable)->Instance),Hydrate:(target:Instance)->((propertyTable:
+PubTypes.PropertyTable)->Instance),Ref:PubTypes.SpecialKey,Cleanup:PubTypes.SpecialKey,Children:PubTypes.SpecialKey,Out:
+PubTypes.SpecialKey,OnEvent:(eventName:string)->PubTypes.SpecialKey,OnChange:(propertyName:string)->PubTypes.SpecialKey,
+Value:<T>(initialValue:T)->Value<T>,Computed:<T>(callback:()->T,destructor:((T)->())?)->Computed<T>,ForPairs:<KI,VI,KO,
+VO,M>(inputTable:CanBeState<{[KI]:VI}>,processor:(KI,VI)->(KO,VO,M?),destructor:((KO,VO,M?)->())?)->ForPairs<KO,VO>,
+ForKeys:<KI,KO,M>(inputTable:CanBeState<{[KI]:any}>,processor:(KI)->(KO,M?),destructor:((KO,M?)->())?)->ForKeys<KO,any>,
+ForValues:<VI,VO,M>(inputTable:CanBeState<{[any]:VI}>,processor:(VI)->(VO,M?),destructor:((VO,M?)->())?)->ForValues<any,
+VO>,Observer:(watchedState:StateObject<any>)->Observer,Tween:<T>(goalState:StateObject<T>,tweenInfo:TweenInfo?)->Tween<T
+>,Spring:<T>(goalState:StateObject<T>,speed:number?,damping:number?)->Spring<T>,cleanup:(...any)->(),doNothing:(...any
+)->()}return g('Fusion',{version={major=0,minor=2,isRelease=true},New=d(c.Instances.New),Hydrate=d(c.Instances.Hydrate),
+Ref=d(c.Instances.Ref),Out=d(c.Instances.Out),Cleanup=d(c.Instances.Cleanup),Children=d(c.Instances.Children),OnEvent=d(
+c.Instances.OnEvent),OnChange=d(c.Instances.OnChange),Value=d(c.State.Value),Computed=d(c.State.Computed),ForPairs=d(c.
+State.ForPairs),ForKeys=d(c.State.ForKeys),ForValues=d(c.State.ForValues),Observer=d(c.State.Observer),Tween=d(c.
+Animation.Tween),Spring=d(c.Animation.Spring),cleanup=d(c.Utility.cleanup),doNothing=d(c.Utility.doNothing)})::Fusion
+end)()end,[5]=function()local b,c,d=a(5)local e return(function(...)local f=c.Parent.Parent local g,h,i,j,k,l,m,n,o,p,q,
+r=d(f.PubTypes),d(f.Types),d(f.Logging.logError),d(f.Logging.logErrorNonFatal),d(f.Animation.unpackType),d(f.Animation.
+SpringScheduler),d(f.Dependencies.useDependency),d(f.Dependencies.initDependency),d(f.Dependencies.updateAll),d(f.
+Utility.xtypeof),d(f.State.unwrap),{}local s,t={__index=r},{__mode='k'}function r.get(u,v:boolean?):any if v~=false then
+m(u)end return u._currentValue end function r.setPosition(u,v:PubTypes.Animatable)local w=typeof(v)if w~=u._currentType
+then i('springTypeMismatch',nil,w,u._currentType)end u._springPositions=k(v,w)u._currentValue=v l.add(u)o(u)end function
+r.setVelocity(u,v:PubTypes.Animatable)local w=typeof(v)if w~=u._currentType then i('springTypeMismatch',nil,w,u.
+_currentType)end u._springVelocities=k(v,w)l.add(u)end function r.addVelocity(u,v:PubTypes.Animatable)local w=typeof(v)
+if w~=u._currentType then i('springTypeMismatch',nil,w,u._currentType)end local x=k(v,w)for y,z in ipairs(x)do u.
+_springVelocities[y]+=z end l.add(u)end function r.update(u):boolean local v=u._goalState:get(false)if v==u._goalValue
+then local w=q(u._damping)if typeof(w)~='number'then j('mistypedSpringDamping',nil,typeof(w))elseif w<0 then j(
+'invalidSpringDamping',nil,w)else u._currentDamping=w end local x=q(u._speed)if typeof(x)~='number'then j(
+'mistypedSpringSpeed',nil,typeof(x))elseif x<0 then j('invalidSpringSpeed',nil,x)else u._currentSpeed=x end return false
+else u._goalValue=v local w,x=u._currentType,typeof(v)u._currentType=x local y=k(v,x)local z=#y u._springGoals=y if x~=w
+then u._currentValue=u._goalValue local A,B=table.create(z,0),table.create(z,0)for C,D in ipairs(y)do A[C]=D end u.
+_springPositions=A u._springVelocities=B l.remove(u)return true elseif z==0 then u._currentValue=u._goalValue return
+true else l.add(u)return false end end end local function u<T>(v:PubTypes.Value<T>,w:PubTypes.CanBeState<number>?,x:
+PubTypes.CanBeState<number>?):Types.Spring<T>if w==nil then w=10 end if x==nil then x=1 end local y={[v]=true}if p(w)==
+'State'then y[w]=true end if p(x)=='State'then y[x]=true end local z=setmetatable({type='State',kind='Spring',
+dependencySet=y,dependentSet=setmetatable({},t),_speed=w,_damping=x,_goalState=v,_goalValue=nil,_currentType=nil,
+_currentValue=nil,_currentSpeed=q(w),_currentDamping=q(x),_springPositions=nil,_springGoals=nil,_springVelocities=nil},s
+)n(z)v.dependentSet[z]=true z:update()return z end return u end)()end,[6]=function()local b,c,d=a(6)local e return(
+function(...)local f,g=game:GetService'RunService',c.Parent.Parent local h,i,j,k=d(g.Types),d(g.Animation.packType),d(g.
+Animation.springCoefficients),d(g.Dependencies.updateAll)type Set<T> ={[T]:any}type Spring=Types.Spring<any>local l,m,n:
+Set<Spring>,o={},0.0001,{},os.clock()function l.add(p:Spring)p._lastSchedule=o p._startDisplacements={}p.
+_startVelocities={}for q,r in ipairs(p._springGoals)do p._startDisplacements[q]=p._springPositions[q]-r p.
+_startVelocities[q]=p._springVelocities[q]end n[p]=true end function l.remove(p:Spring)n[p]=nil end local function p()
+local q:Set<Spring> ={}o=os.clock()for r in pairs(n)do local s,t,u,v=j(o-r._lastSchedule,r._currentDamping,r.
+_currentSpeed)local w,x,y,z,A=r._springPositions,r._springVelocities,r._startDisplacements,r._startVelocities,false for
+B,C in ipairs(r._springGoals)do local D,E=y[B],z[B]local F,G=D*s+E*t,D*u+E*v if math.abs(F)>m or math.abs(G)>m then A=
+true end w[B]=F+C x[B]=G end if not A then q[r]=true end end for s in pairs(n)do s._currentValue=i(s._springPositions,s.
+_currentType)k(s)end for t in pairs(q)do n[t]=nil end end f:BindToRenderStep('__FusionSpringScheduler',Enum.
+RenderPriority.First.Value,p)return l end)()end,[7]=function()local b,c,d=a(7)local e return(function(...)local f=c.
+Parent.Parent local g,h,i,j,k,l,m,n,o=d(f.PubTypes),d(f.Types),d(f.Animation.TweenScheduler),d(f.Dependencies.
+useDependency),d(f.Dependencies.initDependency),d(f.Logging.logError),d(f.Logging.logErrorNonFatal),d(f.Utility.xtypeof)
+,{}local p,q={__index=o},{__mode='k'}function o.get(t,u:boolean?):any if u~=false then j(t)end return t._currentValue
+end function o.update(t):boolean local u=t._goalState:get(false)if u==t._nextValue and not t._currentlyAnimating then
+return false end local v=t._tweenInfo if t._tweenInfoIsState then v=v:get()end if typeof(v)~='TweenInfo'then m(
+'mistypedTweenInfo',nil,typeof(v))return false end t._prevValue=t._currentValue t._nextValue=u t._currentTweenStartTime=
+os.clock()t._currentTweenInfo=v local w=v.DelayTime+v.Time if v.Reverses then w+=v.Time end w*=v.RepeatCount+1 t.
+_currentTweenDuration=w i.add(t)return false end local function t<T>(u:PubTypes.StateObject<PubTypes.Animatable>,v:
+PubTypes.CanBeState<TweenInfo>?):Types.Tween<T>local w=u:get(false)if v==nil then v=TweenInfo.new()end local x,y={[u]=
+true},n(v)=='State'if y then x[v]=true end local z=v if y then z=z:get()end if typeof(z)~='TweenInfo'then l(
+'mistypedTweenInfo',nil,typeof(z))end local A=setmetatable({type='State',kind='Tween',dependencySet=x,dependentSet=
+setmetatable({},q),_goalState=u,_tweenInfo=v,_tweenInfoIsState=y,_prevValue=w,_nextValue=w,_currentValue=w,
+_currentTweenInfo=v,_currentTweenDuration=0,_currentTweenStartTime=0,_currentlyAnimating=false},p)k(A)u.dependentSet[A]=
+true return A end return t end)()end,[8]=function()local b,c,d=a(8)local e return(function(...)local f,g=game:GetService
+'RunService',c.Parent.Parent local h,i,j,k,l=d(g.Types),d(g.Animation.lerpType),d(g.Animation.getTweenRatio),d(g.
+Dependencies.updateAll),{}type Set<T> ={[T]:any}type Tween=Types.Tween<any>local m,n:Set<Tween> ={__mode='k'},{}
+setmetatable(n,m)function l.add(o:Tween)n[o]=true end function l.remove(o:Tween)n[o]=nil end local function o()local p=
+os.clock()for q:Tween in pairs(n::any)do local t=p-q._currentTweenStartTime if t>q._currentTweenDuration then if q.
+_currentTweenInfo.Reverses then q._currentValue=q._prevValue else q._currentValue=q._nextValue end q._currentlyAnimating
+=false k(q)l.remove(q)else local u=j(q._currentTweenInfo,t)local v=i(q._prevValue,q._nextValue,u)q._currentValue=v q.
+_currentlyAnimating=true k(q)end end end f:BindToRenderStep('__FusionTweenScheduler',Enum.RenderPriority.First.Value,o)
+return l end)()end,[9]=function()local b,c,d=a(9)local e return(function(...)local f=game:GetService'TweenService'
+local function g(h:TweenInfo,i:number):number local j,k,l,m,n,o=h.DelayTime,h.Time,h.Reverses,1+h.RepeatCount,h.
+EasingStyle,h.EasingDirection local p=j+k if l then p+=k end if i>=p*m then return 1 end local q=i%p if q<=j then return
+0 end local t=(q-j)/k if t>1 then t=2-t end local u=f:GetValue(t,n,o)return u end return g end)()end,[10]=function()
+local b,c,d=a(10)local e return(function(...)local f=c.Parent.Parent local g,h=d(f.PubTypes),d(f.Colour.Oklab)
+local function i(j:any,k:any,l:number):any local m=typeof(j)if typeof(k)==m then if m=='number'then local n,o=k::number,
+j::number return(n-o)*l+o elseif m=='CFrame'then local n,o=k::CFrame,j::CFrame return o:Lerp(n,l)elseif m=='Color3'then
+local n,o=k::Color3,j::Color3 local p,q=h.to(o),h.to(n)return h.from(p:Lerp(q,l),false)elseif m=='ColorSequenceKeypoint'
+then local n,o=k::ColorSequenceKeypoint,j::ColorSequenceKeypoint local p,q=h.to(o.Value),h.to(n.Value)return
+ColorSequenceKeypoint.new((n.Time-o.Time)*l+o.Time,h.from(p:Lerp(q,l),false))elseif m=='DateTime'then local n,o=k::
+DateTime,j::DateTime return DateTime.fromUnixTimestampMillis((n.UnixTimestampMillis-o.UnixTimestampMillis)*l+o.
 UnixTimestampMillis)elseif m=='NumberRange'then local n,o=k::NumberRange,j::NumberRange return NumberRange.new((n.Min-o.
 Min)*l+o.Min,(n.Max-o.Max)*l+o.Max)elseif m=='NumberSequenceKeypoint'then local n,o=k::NumberSequenceKeypoint,j::
 NumberSequenceKeypoint return NumberSequenceKeypoint.new((n.Time-o.Time)*l+o.Time,(n.Value-o.Value)*l+o.Value,(n.
@@ -1227,120 +1229,122 @@ function()local aa,ab,ac=a(89)local ad return(function(...)local ae=ab.Parent.Pa
 ae.Bundles.services)local ah,ai,aj=ag.UserInputService,ag.RunService,ac(ae.Bundles.Fusion)local b,c,d,e,f,g,h,i,j,k,l,m,
 p=aj.New,aj.OnEvent,aj.Children,aj.Value,aj.Ref,aj.Observer,aj.Computed,ac(ae.utilities.get),ac(ae.utilities.animate),
 ac(ae.utilities.references),ac(ae.Bundles.themeSystem),ac(ae.Bundles.icons),ac(ae.utilities.drag)return function(q)local
-t,u,F,G,H,I,K,L,M,N=af.find'selectedTab',q.KeyCode,e(),e(false),e(true),e(false),e(q.Size.X),(e(q.Size.Y))g(I):onChange(
-function()if not i(I)and N~=nil then N:Disconnect()N=nil end end)local O=e()k.add(O)local P=e()k.add(P)local Q=e()k.add(
-Q)local R=e()k.add(R)local S=e()g(t.data):onChange(function()local T,U=i(t.data),i(Q)U:JumpTo(T.tabPage)end)local T=ah.
-InputBegan:Connect(function(T,U)if not U and T.KeyCode and T.KeyCode==u then H:set(not i(H))end end)M=b'ScreenGui'{Name=
-q.Title,Parent=q.Parent,IgnoreGuiInset=true,ResetOnSpawn=false,Enabled=h(function()return i(H)end),[c'Destroying']=
-function()T:Disconnect()N:Disconnect()end,[d]={b'Frame'{Name='container',BackgroundTransparency=1,AnchorPoint=Vector2.
-new(0,0),Position=UDim2.new(0.5,-i(K)/2,0.5,-i(L)/2),Size=h(function()return UDim2.fromOffset(i(K),45)end),[f]=F,[d]={b
-'Frame'{AnchorPoint=Vector2.new(0,0),Position=UDim2.fromScale(0,0),ClipsDescendants=true,BackgroundColor3=j(function()
-return l.get'background'end,40,1),Size=j(function()if i(G)then return UDim2.fromOffset(i(K),45)end return UDim2.
-fromOffset(i(K),i(L))end,20,1),[d]={b'UICorner'{CornerRadius=UDim.new(0,6)},b'Frame'{ZIndex=5,AnchorPoint=Vector2.new(0,
-0),Position=UDim2.fromOffset(10,50),Size=UDim2.new(1,0,0,466),ClipsDescendants=true,BackgroundTransparency=1,[d]={b
-'ScrollingFrame'{Name='sideBar',AnchorPoint=Vector2.new(0,0),Position=UDim2.fromScale(0,0),Size=UDim2.new(0,40,1,0),
-BackgroundTransparency=1,ScrollBarThickness=0,ClipsDescendants=false,ZIndex=0,CanvasSize=UDim2.new(0,0,0,0),
-AutomaticCanvasSize=Enum.AutomaticSize.Y,[f]=O,[d]={b'UIListLayout'{Padding=UDim.new(0,5),SortOrder=Enum.SortOrder.
-LayoutOrder,FillDirection=Enum.FillDirection.Vertical,HorizontalAlignment=Enum.HorizontalAlignment.Left}}}}},b'Frame'{
-Name='topBar',AnchorPoint=Vector2.new(0.5,0),Position=UDim2.new(0.5,0,0,0),Size=UDim2.new(1,0,0,45),
-BackgroundTransparency=1,[d]={b'UICorner'{CornerRadius=UDim.new(0,6)},b'Frame'{AnchorPoint=Vector2.new(0.5,1),Position=
-UDim2.fromScale(0.5,1),Size=UDim2.new(1,0,0,1),BackgroundColor3=j(function()return l.get'tertiaryBackground'end,40,1),
-BackgroundTransparency=j(function()if i(G)then return 1 else return 0 end end,20,1)},b'Frame'{Name='taskManage',
-BackgroundTransparency=1,AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,0,0.5,0),Size=UDim2.new(0,70,1,0),[d]={b
-'UIListLayout'{FillDirection=Enum.FillDirection.Horizontal,HorizontalAlignment=Enum.HorizontalAlignment.Center,
-VerticalAlignment=Enum.VerticalAlignment.Center},b'Frame'{Size=UDim2.fromOffset(30,30),BackgroundTransparency=1,[d]={b
-'TextButton'{Name='toggleMini',AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,Position=UDim2.fromScale(0.5,
-0.5),Size=UDim2.fromOffset(30,30),[c'Activated']=function()G:set(not i(G))end,[d]={b'ImageLabel'{Name='maximizeIcon',
+t,u,F,G,H,I,K,L,M,N=af.find'selectedTab',af.find'keyCode',e(),e(false),af.find'isToggled',e(false),e(q.Size.X),(e(q.Size
+.Y))g(I):onChange(function()if not i(I)and N~=nil then N:Disconnect()N=nil end end)local O=e()k.add(O)local P=e()k.add(P
+)local Q=e()k.add(Q)local R=e()k.add(R)local S=e()g(t.data):onChange(function()local T,U=i(t.data),i(Q)U:JumpTo(T.
+tabPage)end)local T=ah.InputBegan:Connect(function(T,U)if not U and T.KeyCode and T.KeyCode==i(u.EnumItem)then H:update(
+'boolean',not i(H.boolean))end end)M=b'ScreenGui'{Name=q.Title,Parent=q.Parent,IgnoreGuiInset=true,ResetOnSpawn=false,
+Enabled=h(function()return i(H.boolean)end),[c'Destroying']=function()T:Disconnect()N:Disconnect()end,[d]={b'Frame'{Name
+='container',BackgroundTransparency=1,AnchorPoint=Vector2.new(0,0),Position=UDim2.new(0.5,-i(K)/2,0.5,-i(L)/2),Size=h(
+function()return UDim2.fromOffset(i(K),45)end),[f]=F,[d]={b'Frame'{AnchorPoint=Vector2.new(0,0),Position=UDim2.
+fromScale(0,0),ClipsDescendants=true,BackgroundColor3=j(function()return l.get'background'end,40,1),Size=j(function()if
+i(G)then return UDim2.fromOffset(i(K),45)end return UDim2.fromOffset(i(K),i(L))end,20,1),[d]={b'UICorner'{CornerRadius=
+UDim.new(0,6)},b'Frame'{ZIndex=5,AnchorPoint=Vector2.new(0,0),Position=UDim2.fromOffset(10,50),Size=UDim2.new(1,0,0,466)
+,ClipsDescendants=true,BackgroundTransparency=1,[d]={b'ScrollingFrame'{Name='sideBar',AnchorPoint=Vector2.new(0,0),
+Position=UDim2.fromScale(0,0),Size=UDim2.new(0,40,1,0),BackgroundTransparency=1,ScrollBarThickness=0,ClipsDescendants=
+false,ZIndex=0,CanvasSize=UDim2.new(0,0,0,0),AutomaticCanvasSize=Enum.AutomaticSize.Y,[f]=O,[d]={b'UIListLayout'{Padding
+=UDim.new(0,5),SortOrder=Enum.SortOrder.LayoutOrder,FillDirection=Enum.FillDirection.Vertical,HorizontalAlignment=Enum.
+HorizontalAlignment.Left}}}}},b'Frame'{Name='topBar',AnchorPoint=Vector2.new(0.5,0),Position=UDim2.new(0.5,0,0,0),Size=
+UDim2.new(1,0,0,45),BackgroundTransparency=1,[d]={b'UICorner'{CornerRadius=UDim.new(0,6)},b'Frame'{AnchorPoint=Vector2.
+new(0.5,1),Position=UDim2.fromScale(0.5,1),Size=UDim2.new(1,0,0,1),BackgroundColor3=j(function()return l.get
+'tertiaryBackground'end,40,1),BackgroundTransparency=j(function()if i(G)then return 1 else return 0 end end,20,1)},b
+'Frame'{Name='taskManage',BackgroundTransparency=1,AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,0,0.5,0),Size=
+UDim2.new(0,70,1,0),[d]={b'UIListLayout'{FillDirection=Enum.FillDirection.Horizontal,HorizontalAlignment=Enum.
+HorizontalAlignment.Center,VerticalAlignment=Enum.VerticalAlignment.Center},b'Frame'{Size=UDim2.fromOffset(30,30),
+BackgroundTransparency=1,[d]={b'TextButton'{Name='toggleMini',AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,
+Position=UDim2.fromScale(0.5,0.5),Size=UDim2.fromOffset(30,30),[c'Activated']=function()G:set(not i(G))end,[d]={b
+'ImageLabel'{Name='maximizeIcon',AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,Position=UDim2.fromScale(0.5,
+0.5),Size=UDim2.fromOffset(26,26),Image=m.maximize,ImageColor3=j(function()return l.get'image'end,40,1),
+ImageTransparency=j(function()if i(G)then return 0 else return 1 end end,25,1)},b'ImageLabel'{Name='minimizeIcon',
 AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,Position=UDim2.fromScale(0.5,0.5),Size=UDim2.fromOffset(26,26)
-,Image=m.maximize,ImageColor3=j(function()return l.get'image'end,40,1),ImageTransparency=j(function()if i(G)then return
-0 else return 1 end end,25,1)},b'ImageLabel'{Name='minimizeIcon',AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency
-=1,Position=UDim2.fromScale(0.5,0.5),Size=UDim2.fromOffset(26,26),Image=m.minimize,ImageColor3=j(function()return l.get
-'image'end,40,1),ImageTransparency=j(function()if i(G)then return 1 else return 0 end end,25,1)}}}}},b'TextButton'{Size=
-UDim2.fromOffset(30,30),BackgroundTransparency=1,Text='',[c'Activated']=function()M:Destroy()end,[d]={b'ImageLabel'{
-AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.fromScale(0.5,0.5),Size=UDim2.fromScale(0.95,0.95),
-BackgroundTransparency=1,Image=m.close,ImageTransparency=0,ImageColor3=j(function()return l.get'close'end,40,1)}}}}},b
-'TextLabel'{AnchorPoint=Vector2.new(0,0.5),Position=UDim2.fromScale(0,0.55),Size=UDim2.fromOffset(350,25),
-BackgroundTransparency=1,Font=Enum.Font.GothamBold,TextScaled=true,TextSize=25,TextXAlignment=Enum.TextXAlignment.Left,
-Text=q.Title,TextColor3=j(function()return i(t.data).tabColor or l.get'defaultTab'end,15,1),[d]={b'UIPadding'{
-PaddingLeft=UDim.new(0,15)},b'UITextSizeConstraint'{MaxTextSize=25,MinTextSize=1}}}}},b'Frame'{Name='windowsList',
-AnchorPoint=Vector2.new(0,0),Size=j(function()return UDim2.new(0,i(K)-70,0,i(L)-60)end,20,1),Position=UDim2.new(0,60,0,
-50),BackgroundTransparency=1,ClipsDescendants=true,[f]=P,[d]={b'UIPageLayout'{EasingDirection=Enum.EasingDirection.In,
+,Image=m.minimize,ImageColor3=j(function()return l.get'image'end,40,1),ImageTransparency=j(function()if i(G)then return
+1 else return 0 end end,25,1)}}}}},b'TextButton'{Size=UDim2.fromOffset(30,30),BackgroundTransparency=1,Text='',[c
+'Activated']=function()M:Destroy()end,[d]={b'ImageLabel'{AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.fromScale(0.5,
+0.5),Size=UDim2.fromScale(0.95,0.95),BackgroundTransparency=1,Image=m.close,ImageTransparency=0,ImageColor3=j(function()
+return l.get'close'end,40,1)}}}}},b'TextLabel'{AnchorPoint=Vector2.new(0,0.5),Position=UDim2.fromScale(0,0.55),Size=
+UDim2.fromOffset(350,25),BackgroundTransparency=1,Font=Enum.Font.GothamBold,TextScaled=true,TextSize=25,TextXAlignment=
+Enum.TextXAlignment.Left,Text=q.Title,TextColor3=j(function()return i(t.data).tabColor or l.get'defaultTab'end,15,1),[d]
+={b'UIPadding'{PaddingLeft=UDim.new(0,15)},b'UITextSizeConstraint'{MaxTextSize=25,MinTextSize=1}}}}},b'Frame'{Name=
+'windowsList',AnchorPoint=Vector2.new(0,0),Size=j(function()return UDim2.new(0,i(K)-70,0,i(L)-60)end,20,1),Position=
+UDim2.new(0,60,0,50),BackgroundTransparency=1,ClipsDescendants=true,[f]=P,[d]={b'UIPageLayout'{EasingDirection=Enum.
+EasingDirection.In,EasingStyle=Enum.EasingStyle.Sine,TweenTime=0.2,FillDirection=Enum.FillDirection.Vertical,SortOrder=
+Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,20),[f]=Q}}},b'TextButton'{Name='Resizer',AnchorPoint=Vector2.new(1,1),
+Position=UDim2.fromScale(1,1),Size=UDim2.fromOffset(10,10),BackgroundTransparency=1,Interactable=h(function()return not
+i(G)end),[f]=S,[c'InputBegan']=function(U)if not i(G)and(U.UserInputType==Enum.UserInputType.MouseButton1 or U.
+UserInputType==Enum.UserInputType.Touch)then local V,W=i(S),Vector2.new(9e9,9e9)local X,Z,_=V.AbsolutePosition,i(K),i(L)
+if N==nil then N=ai.Heartbeat:Connect(function()if i(I)then local al=ah:GetMouseLocation()-X if al~=W then W=al K:set(
+math.clamp(al.X+Z-10,550,9e9))L:set(math.clamp(al.Y+_-10,400,9e9))end end end)end I:set(true)U.Changed:Connect(function(
+)if U.UserInputState==Enum.UserInputState.End then task.wait()I:set(false)end end)end end}}}}},b'ScrollingFrame'{Name=
+'NotificationList',ZIndex=0,AnchorPoint=Vector2.new(1,1),Position=UDim2.new(1,-5,1,-10),Size=UDim2.new(0,1,1,-10),
+BackgroundTransparency=1,ScrollBarThickness=0,AutomaticCanvasSize=Enum.AutomaticSize.Y,ClipsDescendants=false,[f]=R,[d]=
+{b'UIListLayout'{Padding=UDim.new(0,5),SortOrder=Enum.SortOrder.LayoutOrder,HorizontalAlignment=Enum.HorizontalAlignment
+.Right,VerticalAlignment=Enum.VerticalAlignment.Bottom}}}}}p(i(F),15)return M end end)()end,[90]=function()local aa,ab,
+ac=a(90)local ad return(function(...)local ae=ab.Parent.Parent local af,ag=ac(ae.Bundles.data),ac(ae.Bundles.services)
+local ah,ai=ag.UserInputService,ac(ae.Bundles.Fusion)local aj,al,b,c,d,e,f,g,h,i,j=ai.New,ai.OnEvent,ai.Children,ai.
+Value,ai.Ref,ai.Observer,ai.Computed,ac(ae.utilities.get),ac(ae.Bundles.themeSystem),ac(ae.utilities.animate),ac(ae.
+utilities.references)return function(k)local l,m,p,q,t,u=af.find'selectedTab',c(false),af.find'isToggled',af.find
+'keyCode',(c())j.add(t)local F=c()j.add(F)local G=c()j.add(G)local H=c()j.add(H)local I=ah.InputBegan:Connect(function(I
+,K)if not K and I.KeyCode and I.KeyCode==g(q.EnumItem)then p:update('boolean',not g(p.boolean))end end)e(l.data):
+onChange(function()local K,L=g(l.data),g(G)L:JumpTo(K.tabPage)end)u=aj'ScreenGui'{Name=k.Title,Parent=k.Parent,
+IgnoreGuiInset=false,ResetOnSpawn=false,Enabled=f(function()return g(p.boolean)end),[al'Destroying']=function()I:
+Disconnect()end,[b]={aj'Frame'{Name='container',AnchorPoint=Vector2.new(0,1),Position=UDim2.new(0,5,1,-5),
+ClipsDescendants=true,BackgroundColor3=i(function()return h.get'background'end,40,1),Size=i(function()if g(m)then return
+UDim2.new(0.75,0,1,-10)else return UDim2.fromOffset(40,40)end end,45,1),[b]={{aj'UICorner'{CornerRadius=UDim.new(0,6)},
+aj'TextButton'{Name='activator',ZIndex=2,AnchorPoint=Vector2.new(0,1),Size=UDim2.fromOffset(40,40),Position=UDim2.
+fromScale(0,1),BackgroundTransparency=1,ClipsDescendants=true,[al'Activated']=function()m:set(not g(m))end,[b]={aj
+'UICorner'{CornerRadius=UDim.new(0,6)},aj'ImageLabel'{Name='maximizeIcon',AnchorPoint=Vector2.new(0.5,0.5),
+BackgroundTransparency=1,Size=UDim2.fromOffset(30,30),Image='rbxassetid://15556636376',ImageColor3=i(function()return h.
+get'image'end,40,1),ImageTransparency=i(function()if g(m)then return 1 else return 0 end end,45,1),Position=i(function()
+if g(m)then return UDim2.fromScale(0.5,1.5)else return UDim2.fromScale(0.5,0.5)end end,25,1)},aj'ImageLabel'{Name=
+'minimizeIcon',AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,Size=UDim2.fromOffset(30,30),Image=
+'rbxassetid://15556637715',ImageColor3=i(function()return h.get'image'end,40,1),ImageTransparency=i(function()if g(m)
+then return 0 else return 1 end end,45,1),Position=i(function()if g(m)then return UDim2.fromScale(0.5,0.5)else return
+UDim2.fromScale(0.5,1.5)end end,25,1)}}},aj'ScrollingFrame'{Name='sideBar',Size=UDim2.new(0,50,1,-80),Position=UDim2.
+fromOffset(0,40),BackgroundTransparency=1,ScrollBarThickness=0,ClipsDescendants=false,CanvasSize=UDim2.new(0,0,0,0),
+AutomaticCanvasSize=Enum.AutomaticSize.Y,[d]=t,[b]={aj'UIListLayout'{Padding=UDim.new(0,5),SortOrder=Enum.SortOrder.
+LayoutOrder,FillDirection=Enum.FillDirection.Vertical,HorizontalAlignment=Enum.HorizontalAlignment.Left},aj'UIPadding'{
+PaddingLeft=UDim.new(0,10)}}},aj'Frame'{Name='topBar',Size=UDim2.new(1,0,0,40),BackgroundTransparency=1,ZIndex=0,[b]={aj
+'TextLabel'{AnchorPoint=Vector2.new(0,0.5),Position=UDim2.fromScale(0,0.5),Size=UDim2.new(1,-40,0,24),
+BackgroundTransparency=1,Font=Enum.Font.GothamBold,TextScaled=true,TextSize=24,TextXAlignment=Enum.TextXAlignment.Left,
+Text=k.Title,TextColor3=i(function()return g(l.data).tabColor or h.get'defaultTab'end,15,1),TextTransparency=i(function(
+)if g(m)then return 0 else return 1 end end,45,1),[b]={aj'UIPadding'{PaddingLeft=UDim.new(0,10)},aj
+'UITextSizeConstraint'{MaxTextSize=24,MinTextSize=1}}},aj'TextButton'{AnchorPoint=Vector2.new(1,0.5),Position=UDim2.
+fromScale(1,0.5),Size=UDim2.fromOffset(40,40),BackgroundTransparency=1,Text='',ZIndex=0,[al'Activated']=function()u:
+Destroy()end,[b]={aj'ImageLabel'{AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.fromScale(0.5,0.5),Size=UDim2.
+fromScale(0.9,0.9),Rotation=45,BackgroundTransparency=1,Image='rbxassetid://15556635005',ImageColor3=i(function()return
+h.get'close'end,40,1),ImageTransparency=i(function()if g(m)then return 0 else return 1 end end,45,1)}}}}},aj'Frame'{Name
+='windowsList',ZIndex=0,Position=UDim2.fromOffset(50,40),Size=UDim2.new(1,-50,1,-40),BackgroundTransparency=1,
+ClipsDescendants=true,[d]=F,[b]={aj'UIPadding'{PaddingLeft=UDim.new(0,5),PaddingRight=UDim.new(0,10),PaddingTop=UDim.
+new(0,5),PaddingBottom=UDim.new(0,5)},aj'UIPageLayout'{Name='UIPageLayout',EasingDirection=Enum.EasingDirection.In,
 EasingStyle=Enum.EasingStyle.Sine,TweenTime=0.2,FillDirection=Enum.FillDirection.Vertical,SortOrder=Enum.SortOrder.
-LayoutOrder,Padding=UDim.new(0,20),[f]=Q}}},b'TextButton'{Name='Resizer',AnchorPoint=Vector2.new(1,1),Position=UDim2.
-fromScale(1,1),Size=UDim2.fromOffset(10,10),BackgroundTransparency=1,Interactable=h(function()return not i(G)end),[f]=S,
-[c'InputBegan']=function(U)if not i(G)and(U.UserInputType==Enum.UserInputType.MouseButton1 or U.UserInputType==Enum.
-UserInputType.Touch)then local V,W=i(S),Vector2.new(9e9,9e9)local X,Z,_=V.AbsolutePosition,i(K),i(L)if N==nil then N=ai.
-Heartbeat:Connect(function()if i(I)then local al=ah:GetMouseLocation()-X if al~=W then W=al K:set(math.clamp(al.X+Z-10,
-550,9e9))L:set(math.clamp(al.Y+_-10,400,9e9))end end end)end I:set(true)U.Changed:Connect(function()if U.UserInputState
-==Enum.UserInputState.End then task.wait()I:set(false)end end)end end}}}}},b'ScrollingFrame'{Name='NotificationList',
-ZIndex=0,AnchorPoint=Vector2.new(1,1),Position=UDim2.new(1,-5,1,-10),Size=UDim2.new(0,1,1,-10),BackgroundTransparency=1,
-ScrollBarThickness=0,AutomaticCanvasSize=Enum.AutomaticSize.Y,ClipsDescendants=false,[f]=R,[d]={b'UIListLayout'{Padding=
-UDim.new(0,5),SortOrder=Enum.SortOrder.LayoutOrder,HorizontalAlignment=Enum.HorizontalAlignment.Right,VerticalAlignment=
-Enum.VerticalAlignment.Bottom}}}}}p(i(F),15)return M end end)()end,[90]=function()local aa,ab,ac=a(90)local ad return(
-function(...)local ae=ab.Parent.Parent local af,ag=ac(ae.Bundles.data),ac(ae.Bundles.services)local ah,ai=ag.
-UserInputService,ac(ae.Bundles.Fusion)local aj,al,b,c,d,e,f,g,h,i=ai.New,ai.OnEvent,ai.Children,ai.Value,ai.Ref,ai.
-Observer,ac(ae.utilities.get),ac(ae.Bundles.themeSystem),ac(ae.utilities.animate),ac(ae.utilities.references)return
-function(j)local k,l,m,p,q,t=af.find'selectedTab',c(false),c(true),j.KeyCode,(c())i.add(q)local u=c()i.add(u)local F=c()
-i.add(F)local G=c()i.add(G)local H=ah.InputBegan:Connect(function(H,I)if not I and H.KeyCode and H.KeyCode==p then m:
-set(not f(m))end end)e(k.data):onChange(function()local I,K=f(k.data),f(F)K:JumpTo(I.tabPage)end)t=aj'ScreenGui'{Name=j.
-Title,Parent=j.Parent,IgnoreGuiInset=false,ResetOnSpawn=false,[al'Destroying']=function()H:Disconnect()end,[b]={aj
-'Frame'{Name='container',AnchorPoint=Vector2.new(0,1),Position=UDim2.new(0,5,1,-5),ClipsDescendants=true,
-BackgroundColor3=h(function()return g.get'background'end,40,1),Size=h(function()if f(l)then return UDim2.new(0.75,0,1,-
-10)else return UDim2.fromOffset(40,40)end end,45,1),[b]={{aj'UICorner'{CornerRadius=UDim.new(0,6)},aj'TextButton'{Name=
-'activator',ZIndex=2,AnchorPoint=Vector2.new(0,1),Size=UDim2.fromOffset(40,40),Position=UDim2.fromScale(0,1),
-BackgroundTransparency=1,ClipsDescendants=true,[al'Activated']=function()l:set(not f(l))end,[b]={aj'UICorner'{
-CornerRadius=UDim.new(0,6)},aj'ImageLabel'{Name='maximizeIcon',AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1
-,Size=UDim2.fromOffset(30,30),Image='rbxassetid://15556636376',ImageColor3=h(function()return g.get'image'end,40,1),
-ImageTransparency=h(function()if f(l)then return 1 else return 0 end end,45,1),Position=h(function()if f(l)then return
-UDim2.fromScale(0.5,1.5)else return UDim2.fromScale(0.5,0.5)end end,25,1)},aj'ImageLabel'{Name='minimizeIcon',
-AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,Size=UDim2.fromOffset(30,30),Image='rbxassetid://15556637715',
-ImageColor3=h(function()return g.get'image'end,40,1),ImageTransparency=h(function()if f(l)then return 0 else return 1
-end end,45,1),Position=h(function()if f(l)then return UDim2.fromScale(0.5,0.5)else return UDim2.fromScale(0.5,1.5)end
-end,25,1)}}},aj'ScrollingFrame'{Name='sideBar',Size=UDim2.new(0,50,1,-80),Position=UDim2.fromOffset(0,40),
-BackgroundTransparency=1,ScrollBarThickness=0,ClipsDescendants=false,CanvasSize=UDim2.new(0,0,0,0),AutomaticCanvasSize=
-Enum.AutomaticSize.Y,[d]=q,[b]={aj'UIListLayout'{Padding=UDim.new(0,5),SortOrder=Enum.SortOrder.LayoutOrder,
-FillDirection=Enum.FillDirection.Vertical,HorizontalAlignment=Enum.HorizontalAlignment.Left},aj'UIPadding'{PaddingLeft=
-UDim.new(0,10)}}},aj'Frame'{Name='topBar',Size=UDim2.new(1,0,0,40),BackgroundTransparency=1,ZIndex=0,[b]={aj'TextLabel'{
-AnchorPoint=Vector2.new(0,0.5),Position=UDim2.fromScale(0,0.5),Size=UDim2.new(1,-40,0,24),BackgroundTransparency=1,Font=
-Enum.Font.GothamBold,TextScaled=true,TextSize=24,TextXAlignment=Enum.TextXAlignment.Left,Text=j.Title,TextColor3=h(
-function()return f(k.data).tabColor or g.get'defaultTab'end,15,1),TextTransparency=h(function()if f(l)then return 0 else
-return 1 end end,45,1),[b]={aj'UIPadding'{PaddingLeft=UDim.new(0,10)},aj'UITextSizeConstraint'{MaxTextSize=24,
-MinTextSize=1}}},aj'TextButton'{AnchorPoint=Vector2.new(1,0.5),Position=UDim2.fromScale(1,0.5),Size=UDim2.fromOffset(40,
-40),BackgroundTransparency=1,Text='',ZIndex=0,[al'Activated']=function()t:Destroy()end,[b]={aj'ImageLabel'{AnchorPoint=
-Vector2.new(0.5,0.5),Position=UDim2.fromScale(0.5,0.5),Size=UDim2.fromScale(0.9,0.9),Rotation=45,BackgroundTransparency=
-1,Image='rbxassetid://15556635005',ImageColor3=h(function()return g.get'close'end,40,1),ImageTransparency=h(function()if
-f(l)then return 0 else return 1 end end,45,1)}}}}},aj'Frame'{Name='windowsList',ZIndex=0,Position=UDim2.fromOffset(50,40
-),Size=UDim2.new(1,-50,1,-40),BackgroundTransparency=1,ClipsDescendants=true,[d]=u,[b]={aj'UIPadding'{PaddingLeft=UDim.
-new(0,5),PaddingRight=UDim.new(0,10),PaddingTop=UDim.new(0,5),PaddingBottom=UDim.new(0,5)},aj'UIPageLayout'{Name=
-'UIPageLayout',EasingDirection=Enum.EasingDirection.In,EasingStyle=Enum.EasingStyle.Sine,TweenTime=0.2,FillDirection=
-Enum.FillDirection.Vertical,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,20),[d]=F}}}}}},aj'ScrollingFrame'{
-Name='notifications',ZIndex=0,AnchorPoint=Vector2.new(1,1),Position=UDim2.new(1,-5,1,-10),Size=UDim2.new(0,1,1,-10),
-BackgroundTransparency=1,ScrollBarThickness=0,AutomaticCanvasSize=Enum.AutomaticSize.Y,ClipsDescendants=false,[d]=G,[b]=
-{aj'UIListLayout'{Padding=UDim.new(0,5),SortOrder=Enum.SortOrder.LayoutOrder,HorizontalAlignment=Enum.
-HorizontalAlignment.Right,VerticalAlignment=Enum.VerticalAlignment.Bottom}}}}}return t end end)()end,[91]=function()
-local aa,ab,ac=a(91)local ad return(function(...)return{defaultTab=Color3.fromHex'#a49ae6',background=Color3.fromRGB(40,
-44,50),secondaryBackground=Color3.fromRGB(49,56,66),tertiaryBackground=Color3.fromRGB(57,63,75),text=Color3.fromRGB(220,
-221,225),image=Color3.fromRGB(220,221,225),placeholder=Color3.fromRGB(165,166,169),close=Color3.fromRGB(190,100,105)}end
-)()end,[92]=function()local aa,ab,ac=a(92)local ad return(function(...)local ae,af=ac(ab.Parent),{Dracula={defaultTab=
-Color3.fromRGB(254,126,92),background=Color3.fromRGB(40,42,54),secondaryBackground=Color3.fromRGB(50,52,64),
-tertiaryBackground=Color3.fromRGB(45,47,59),text=Color3.fromRGB(204,204,204),image=Color3.fromRGB(204,204,204),
-placeholder=Color3.fromRGB(165,166,169),close=Color3.fromRGB(190,100,105)},Dark={defaultTab=Color3.fromRGB(150,150,150),
-background=Color3.fromRGB(26,27,33),secondaryBackground=Color3.fromRGB(34,35,39),tertiaryBackground=Color3.fromRGB(22,22
-,22),text=Color3.fromRGB(230,230,230),image=Color3.fromRGB(94,93,93),placeholder=Color3.fromRGB(79,79,79),close=Color3.
-fromRGB(190,100,105)},Default={},Eyebleed={defaultTab=Color3.fromRGB(255,67,211),background=Color3.fromRGB(195,198,217),
-secondaryBackground=Color3.fromRGB(127,130,140),tertiaryBackground=Color3.fromRGB(116,137,100),text=Color3.fromRGB(116,
-57,108),image=Color3.fromRGB(244,162,162),placeholder=Color3.fromRGB(57,181,103),close=Color3.fromRGB(181,177,67)}}
-return function(ag)local ah=ae:Window{Title='Quake Window',Parent=ag,isMobile=true}local ai,aj,al=ah:Tab{Name=
-'Quake Tab 1',Image='rbxassetid://10734908793'},ah:Tab{Name='Quake Tab 2',tabColor=Color3.fromRGB(255,120,222),Image=
+LayoutOrder,Padding=UDim.new(0,20),[d]=G}}}}}},aj'ScrollingFrame'{Name='notifications',ZIndex=0,AnchorPoint=Vector2.new(
+1,1),Position=UDim2.new(1,-5,1,-10),Size=UDim2.new(0,1,1,-10),BackgroundTransparency=1,ScrollBarThickness=0,
+AutomaticCanvasSize=Enum.AutomaticSize.Y,ClipsDescendants=false,[d]=H,[b]={aj'UIListLayout'{Padding=UDim.new(0,5),
+SortOrder=Enum.SortOrder.LayoutOrder,HorizontalAlignment=Enum.HorizontalAlignment.Right,VerticalAlignment=Enum.
+VerticalAlignment.Bottom}}}}}return u end end)()end,[91]=function()local aa,ab,ac=a(91)local ad return(function(...)
+return{defaultTab=Color3.fromHex'#a49ae6',background=Color3.fromRGB(40,44,50),secondaryBackground=Color3.fromRGB(49,56,
+66),tertiaryBackground=Color3.fromRGB(57,63,75),text=Color3.fromRGB(220,221,225),image=Color3.fromRGB(220,221,225),
+placeholder=Color3.fromRGB(165,166,169),close=Color3.fromRGB(190,100,105)}end)()end,[92]=function()local aa,ab,ac=a(92)
+local ad return(function(...)local ae,af=ac(ab.Parent),{Dracula={defaultTab=Color3.fromRGB(254,126,92),background=Color3
+.fromRGB(40,42,54),secondaryBackground=Color3.fromRGB(50,52,64),tertiaryBackground=Color3.fromRGB(45,47,59),text=Color3.
+fromRGB(204,204,204),image=Color3.fromRGB(204,204,204),placeholder=Color3.fromRGB(165,166,169),close=Color3.fromRGB(190,
+100,105)},Dark={defaultTab=Color3.fromRGB(150,150,150),background=Color3.fromRGB(26,27,33),secondaryBackground=Color3.
+fromRGB(34,35,39),tertiaryBackground=Color3.fromRGB(22,22,22),text=Color3.fromRGB(230,230,230),image=Color3.fromRGB(94,
+93,93),placeholder=Color3.fromRGB(79,79,79),close=Color3.fromRGB(190,100,105)},Default={},Eyebleed={defaultTab=Color3.
+fromRGB(255,67,211),background=Color3.fromRGB(195,198,217),secondaryBackground=Color3.fromRGB(127,130,140),
+tertiaryBackground=Color3.fromRGB(116,137,100),text=Color3.fromRGB(116,57,108),image=Color3.fromRGB(244,162,162),
+placeholder=Color3.fromRGB(57,181,103),close=Color3.fromRGB(181,177,67)}}return function(ag)local ah=ae:Window{Title=
+'Quake Window',Parent=ag,isMobile=true,KeyCode=Enum.KeyCode.Q}local ai,aj,al=ah:Tab{Name='Quake Tab 1',Image=
+'rbxassetid://10734908793'},ah:Tab{Name='Quake Tab 2',tabColor=Color3.fromRGB(255,120,222),Image=
 'rbxassetid://10734919691'},ah:Tab{Name='Quake Tab 3',tabColor=Color3.fromRGB(65,253,123),Image=
 'rbxassetid://10734950309'}ai:Button{Name='Quake Button',Callback=function()print'Quake Button'end}ai:Toggle{Name=
 'Quake Toggle',Default=false,Callback=function(b)print('Quake Toggle',b)end}ai:Slider{Name='Quake Slider',Min=0,Max=100,
 InitialValue=0,Callback=function(b)print('Quake Slider',b)end}ai:Dropdown{Name='Quake Multiselect Dropdown',Items={
 'Apple','Banana','Carrot','Dingleberry'},Default='Apple',Multiselect=true,Callback=function(b)print('Quake Dropdown',b)
 end}ai:TextBox{Name='Quake TextBox',Default='heyy',OnLeave=true,OnlyNumbers=true,Callback=function(b)print(
-'Quake TextBox',b)end}ai:Keybind{Name='Quake Keybind',Default='E',Callback=function()print'Quake Keybind'end}ai:
-ColorPicker{Name='Quake Color Picker',Color=Color3.fromHex'#a49ae6',Callback=function(b)print('Quake Color Picker',b)end
-}ai:Label'Quake Label'ai:Section'Quake Section'ai:Paragraph{Title='Quake Paragraph',Body='Quake Paragraph'}aj:Label
+'Quake TextBox',b)end}ai:Keybind{Name='Quake Keybind',Default='F',Callback=function()ae:ToggleQuake()end}ai:ColorPicker{
+Name='Quake Color Picker',Color=Color3.fromHex'#a49ae6',Callback=function(b)print('Quake Color Picker',b)end}ai:Label
+'Quake Label'ai:Section'Quake Section'ai:Paragraph{Title='Quake Paragraph',Body='Quake Paragraph'}aj:Label
 'Quake Group Below'local b=aj:Group{Name='Quake Group',Icon='rbxassetid://10734950309'}b:Button{Name='Quake Button',
 Callback=function()print'Quake Button'end}b:Toggle{Name='Quake Toggle',Default=false,Callback=function(c)print(
 'Quake Toggle',c)end}b:Slider{Name='Quake Slider',Min=0,Max=100,Step=1,InitialValue=0,Callback=function(c)print(
@@ -1386,33 +1390,33 @@ Bundles.Fusion).Observer,ac(ab.Parent.get)function af.add(ai)if typeof(ah(ai))~=
 ai]then ae[ai]=nil else warn(ai,"isn't in the references list")end end function af.clear()for ai,aj in ae do ae[ai]=nil
 if typeof(aj)=='Instance'then aj:Destroy()end end end return af end)()end,[104]=function()local aa,ab,ac=a(104)local ad
 return(function(...)local ae=ac(ab.Parent.Parent.Bundles.Fusion)local af=ae.Computed return function(ag,ah)return ae.
-Tween(af(ag),ah)end end)()end},{{1,2,{'quake'},{{92,2,{'project.story'}},{93,1,{'utilities'},{{102,2,{'randomString'}},{
-100,2,{'lerpColor'}},{99,2,{'getStringBounds'}},{95,2,{'connections'}},{94,2,{'animate'}},{98,2,{'get'}},{103,2,{
-'references'}},{104,2,{'tween'}},{97,2,{'drag'}},{101,2,{'matchColors'}},{96,2,{'customFunctions'}}}},{88,1,{'platforms'
-},{{89,2,{'computer'}},{90,2,{'mobile'}}}},{73,1,{'components'},{{85,2,{'newTextBox'}},{86,2,{'newToggle'}},{78,2,{
-'newKeybind'}},{87,2,{'newWindow'}},{82,2,{'newSection'}},{80,2,{'newNotification'}},{83,2,{'newSlider'}},{84,2,{
-'newTab'}},{74,2,{'newButton'}},{81,2,{'newParagraph'}},{77,2,{'newGroup'}},{79,2,{'newLabel'}},{76,2,{'newDropdown'}},{
-75,2,{'newColorPicker'}}}},{2,1,{'Bundles'},{{69,2,{'icons'}},{68,2,{'data'}},{71,2,{'themeSystem'},{{72,2,{'default'}}}
-},{57,2,{'betterMathModule'},{{64,3,{'CLASS_Matrix'}},{62,3,{'CLASS_Check'}},{59,3,{'CLASS_Sequence'}},{67,3,{
-'CLASS_Chance'}},{66,3,{'Class_Special'}},{65,3,{'CLASS_Random'}},{63,3,{'CLASS_Notation'}},{60,3,{'CLASS_String'}},{61,
-3,{'CLASS_Convert'}},{58,3,{'CLASS_Value'}}}},{3,2,{'Fusion'},{{16,1,{'Dependencies'},{{20,2,{'updateAll'}},{17,2,{
-'captureDependencies'}},{19,2,{'sharedState'}},{21,2,{'useDependency'}},{18,2,{'initDependency'}}}},{39,2,{'PubTypes'}},
-{40,1,{'State'},{{41,2,{'Computed'}},{43,2,{'ForPairs'}},{42,2,{'ForKeys'}},{46,2,{'Value'}},{45,2,{'Observer'}},{44,2,{
-'ForValues'}},{47,2,{'unwrap'}}}},{48,2,{'Types'}},{33,1,{'Logging'},{{38,2,{'parseError'}},{36,2,{'logWarn'}},{34,2,{
-'logError'}},{37,2,{'messages'}},{35,2,{'logErrorNonFatal'}}}},{49,1,{'Utility'},{{56,2,{'xtypeof'}},{52,2,{'doNothing'}
-},{54,2,{'needsDestruction'}},{55,2,{'restrictRead'}},{53,2,{'isSimilar'}},{51,2,{'cleanup'}},{50,2,{'None'}}}},{14,1,{
-'Colour'},{{15,2,{'Oklab'}}}},{22,1,{'Instances'},{{29,2,{'Out'}},{30,2,{'Ref'}},{32,2,{'defaultProps'}},{31,2,{
-'applyInstanceProps'}},{28,2,{'OnEvent'}},{25,2,{'Hydrate'}},{27,2,{'OnChange'}},{23,2,{'Children'}},{24,2,{'Cleanup'}},
-{26,2,{'New'}}}},{4,1,{'Animation'},{{9,2,{'getTweenRatio'}},{5,2,{'Spring'}},{8,2,{'TweenScheduler'}},{13,2,{
-'unpackType'}},{11,2,{'packType'}},{7,2,{'Tween'}},{12,2,{'springCoefficients'}},{10,2,{'lerpType'}},{6,2,{
-'SpringScheduler'}}}}}},{70,2,{'services'}}}},{91,2,{'preservedConfig'}}}}},'0.4.1','WaxRuntime',string,task,
-setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,tostring,tonumber,_VERSION local k,l,m,p,q,t,u=
-aj.insert,aj.remove,aj.freeze or function(k)return k end,b.wrap,ae.sub,ae.match,ae.gmatch if i and q(i,1,4)=='Lune'then
-local F,G=f(e,'@lune/task')if F and G then af=G end end local F=af and af.defer local G,H,I,K,L,M,N,O,P=F or function(G,
-...)p(G)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}
-local Q,R={GetFullName={{},function(Q)local R,S=Q.Name,Q.Parent while S do R=S.Name..'.'..R S=S.Parent end return R end}
-,GetChildren={{},function(Q)local R={}for S in ai,P[Q]do k(R,S)end return R end},GetDescendants={{},function(Q)local R={
-}for S in ai,P[Q]do k(R,S)for T,U in ai,S:GetDescendants()do k(R,U)end end return R end},FindFirstChild={{'string',
+Tween(af(ag),ah)end end)()end},{{1,2,{'quake'},{{93,1,{'utilities'},{{95,2,{'connections'}},{99,2,{'getStringBounds'}},{
+104,2,{'tween'}},{94,2,{'animate'}},{102,2,{'randomString'}},{98,2,{'get'}},{97,2,{'drag'}},{103,2,{'references'}},{101,
+2,{'matchColors'}},{96,2,{'customFunctions'}},{100,2,{'lerpColor'}}}},{73,1,{'components'},{{76,2,{'newDropdown'}},{77,2
+,{'newGroup'}},{80,2,{'newNotification'}},{81,2,{'newParagraph'}},{84,2,{'newTab'}},{78,2,{'newKeybind'}},{83,2,{
+'newSlider'}},{85,2,{'newTextBox'}},{79,2,{'newLabel'}},{86,2,{'newToggle'}},{82,2,{'newSection'}},{87,2,{'newWindow'}},
+{75,2,{'newColorPicker'}},{74,2,{'newButton'}}}},{91,2,{'preservedConfig'}},{88,1,{'platforms'},{{89,2,{'computer'}},{90
+,2,{'mobile'}}}},{2,1,{'Bundles'},{{3,2,{'Fusion'},{{48,2,{'Types'}},{40,1,{'State'},{{42,2,{'ForKeys'}},{43,2,{
+'ForPairs'}},{47,2,{'unwrap'}},{45,2,{'Observer'}},{46,2,{'Value'}},{41,2,{'Computed'}},{44,2,{'ForValues'}}}},{14,1,{
+'Colour'},{{15,2,{'Oklab'}}}},{22,1,{'Instances'},{{23,2,{'Children'}},{26,2,{'New'}},{29,2,{'Out'}},{25,2,{'Hydrate'}},
+{32,2,{'defaultProps'}},{24,2,{'Cleanup'}},{30,2,{'Ref'}},{27,2,{'OnChange'}},{28,2,{'OnEvent'}},{31,2,{
+'applyInstanceProps'}}}},{4,1,{'Animation'},{{13,2,{'unpackType'}},{11,2,{'packType'}},{9,2,{'getTweenRatio'}},{5,2,{
+'Spring'}},{10,2,{'lerpType'}},{8,2,{'TweenScheduler'}},{6,2,{'SpringScheduler'}},{12,2,{'springCoefficients'}},{7,2,{
+'Tween'}}}},{49,1,{'Utility'},{{55,2,{'restrictRead'}},{53,2,{'isSimilar'}},{56,2,{'xtypeof'}},{50,2,{'None'}},{51,2,{
+'cleanup'}},{52,2,{'doNothing'}},{54,2,{'needsDestruction'}}}},{39,2,{'PubTypes'}},{16,1,{'Dependencies'},{{20,2,{
+'updateAll'}},{18,2,{'initDependency'}},{17,2,{'captureDependencies'}},{19,2,{'sharedState'}},{21,2,{'useDependency'}}}}
+,{33,1,{'Logging'},{{37,2,{'messages'}},{38,2,{'parseError'}},{34,2,{'logError'}},{36,2,{'logWarn'}},{35,2,{
+'logErrorNonFatal'}}}}}},{68,2,{'data'}},{57,2,{'betterMathModule'},{{59,3,{'CLASS_Sequence'}},{63,3,{'CLASS_Notation'}}
+,{58,3,{'CLASS_Value'}},{64,3,{'CLASS_Matrix'}},{60,3,{'CLASS_String'}},{67,3,{'CLASS_Chance'}},{65,3,{'CLASS_Random'}},
+{62,3,{'CLASS_Check'}},{66,3,{'Class_Special'}},{61,3,{'CLASS_Convert'}}}},{69,2,{'icons'}},{70,2,{'services'}},{71,2,{
+'themeSystem'},{{72,2,{'default'}}}}}},{92,2,{'project.story'}}}}},'0.4.1','WaxRuntime',string,task,setmetatable,error,
+next,table,unpack,coroutine,script,type,require,pcall,tostring,tonumber,_VERSION local k,l,m,p,q,t,u=aj.insert,aj.remove
+,aj.freeze or function(k)return k end,b.wrap,ae.sub,ae.match,ae.gmatch if i and q(i,1,4)=='Lune'then local F,G=f(e,
+'@lune/task')if F and G then af=G end end local F=af and af.defer local G,H,I,K,L,M,N,O,P=F or function(G,...)p(G)(...)
+end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local Q,R={
+GetFullName={{},function(Q)local R,S=Q.Name,Q.Parent while S do R=S.Name..'.'..R S=S.Parent end return R end},
+GetChildren={{},function(Q)local R={}for S in ai,P[Q]do k(R,S)end return R end},GetDescendants={{},function(Q)local R={}
+for S in ai,P[Q]do k(R,S)for T,U in ai,S:GetDescendants()do k(R,U)end end return R end},FindFirstChild={{'string',
 'boolean?'},function(Q,R,S)local T=P[Q]for U in ai,T do if U.Name==R then return U end end if S then for V in ai,T do
 return V:FindFirstChild(R,true)end end end},FindFirstAncestor={{'string'},function(Q,R)local S=Q.Parent while S do if S.
 Name==R then return S end S=S.Parent end end},WaitForChild={{'string','number?'},function(Q,R)return Q:FindFirstChild(R)
